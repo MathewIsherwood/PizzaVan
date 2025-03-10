@@ -75,8 +75,8 @@ My inspiration for PizzaMe came from the colours of Pizza, why change what is al
 For the business inspiration, there is a pizza van that visits my area but only on a Tuesday. Unless I ask them, I have no idea where in town they are the rest of the week. What if I need a pizza, like medically NEED a pizza on a Friday?! A website is required!
 
 ### Colour Scheme
-![Pizza](<Planning Files/pizza.png>)
-![Tomatoes](<Planning Files/tomatoes.jpg>)
+![Pizza](<planning_files/pizza.png>)
+![Tomatoes](<planning_files/tomatoes.jpg>)
 
 |Tag|Colour|Item(s)|Hex Code|
 |---|---|---|---|
@@ -90,16 +90,16 @@ For the business inspiration, there is a pizza van that visits my area but only 
 
 Colour Blind Safe and contrast was checked by [Adobe Color](<https://color.adobe.com/create/color-accessibility>)
 
-![Contrast Check](<Planning Files/ContrastCheck.jpg>)
+![Contrast Check](<planning_files/ContrastCheck.jpg>)
 
 #### Contrast checker
 
 To check the text contrast I used [Adobe Color](<https://color.adobe.com/create/color-accessibility>)
 
-![Contrast Red Black](<Planning Files/Contrast-Red-Black.jpg>)
-![Contrast Green Black](<Planning Files/Contrast-Green-Black.jpg>)
-![Contrast Yellow Black](<Planning Files/Contrast-Yellow-Black.jpg>)
-![Contrast Brown Black](<Planning Files/Contrast-Brown-Black.jpg>)
+![Contrast Red Black](<planning_files/Contrast-Red-Black.jpg>)
+![Contrast Green Black](<planning_files/Contrast-Green-Black.jpg>)
+![Contrast Yellow Black](<planning_files/Contrast-Yellow-Black.jpg>)
+![Contrast Brown Black](<planning_files/Contrast-Brown-Black.jpg>)
 
 ### Font
 
@@ -118,30 +118,251 @@ The primary objective of PizzaMe is to bridge the gap between people who want pi
 - Offer an intuitive interface with role-based dashboards for workers and customers.
 
 ### Agile Methodologies - Project Management
-I used an agile approach to project management. The HealMate development process was broken into sprints, and tasks were added to the GitHub project board to be tracked and managed through issues.
+I used an agile approach to project management. The PizzaMe development process was broken into sprints, and tasks were added to the GitHub project board to be tracked and managed through issues.
 
 ### MoSCoW Prioritization
-- **Must-Haves:** 
-    - User registration and login 
-    - Order booking 
-    - Reviews
-    - Role-based dashboards
-- **Should-Haves:** 
-    - Filtering options
-- **Could-Haves:** 
-    - Profile pictures for users and staff
-    - Messaging system
-    - Notifications
-    - Personal profile with pre-planned filters (alergies, distastes)
-    - Changing / Removing toppings
-    - Changing crusts
-    - Order history
-    - Saved orders
-    - Reset password (requires email or SMS integration)
-    - Add photo onto review
-- **Won’t-Haves:** 
-    - Payment integration
-    - Multiple locations per day.
+### Must-Haves
+
+1. **User Registration and Login**
+
+    **Acceptance Criteria:**
+    - Users can register with a username, email, and password.
+    - Users can log in with their credentials.
+    - Users receive a confirmation email upon registration.
+
+    **Tasks:**
+    - Set up Django AllAuth for user authentication.
+    - Create registration and login forms.
+    - Implement email confirmation for new users.
+    - Design responsive registration and login pages.
+
+2. **Notifications**
+
+    **Acceptance Criteria:**
+    - Users receive notifications for order status updates.
+    - Users can view notifications in their dashboard.
+
+    **Tasks:**
+    - Implement a notification system using Django signals.
+    - Create a notifications model.
+    - Design a notifications section in the user dashboard.
+    - Ensure notifications are displayed responsively.
+
+3. **Create Order**
+
+    **Acceptance Criteria:**
+    - Users can create a new order by selecting pizzas and specifying details.
+    - Users receive a confirmation message upon successful order creation.
+
+    **Tasks:**
+    - Create an order model and form.
+    - Implement order creation logic.
+    - Design a responsive order creation page.
+    - Display a confirmation message upon order creation.
+
+4. **Edit Booking**
+
+    **Acceptance Criteria:**
+    - Users can edit their existing bookings.
+    - Changes are saved and reflected in the user's booking history.
+
+    **Tasks:**
+    - Implement booking edit functionality.
+    - Create a form for editing bookings.
+    - Design a responsive booking edit page.
+    - Ensure changes are saved and displayed correctly.
+
+5. **View Booking**
+
+    **Acceptance Criteria:**
+    - Users can view their current and past bookings.
+    - Booking details are displayed clearly and responsively.
+
+    **Tasks:**
+    - Create a view for displaying user bookings.
+    - Design a responsive booking history page.
+    - Ensure booking details are displayed correctly.
+
+6. **Delete Booking**
+
+    **Acceptance Criteria:**
+    - Users can delete their existing bookings.
+    - Deleted bookings are removed from the user's booking history.
+
+    **Tasks:**
+    - Implement booking deletion functionality.
+    - Add a delete button to the booking history page.
+    - Ensure bookings are removed from the database upon deletion.
+
+### Should-Haves
+
+7. **Reviews**
+
+    **Acceptance Criteria:**
+    - Users can leave reviews for their orders.
+    - Reviews are displayed on the order details page.
+
+    **Tasks:**
+    - Create a review model and form.
+    - Implement review submission logic.
+    - Design a responsive review section on the order details page.
+
+8. **Edit Reviews**
+
+    **Acceptance Criteria:**
+    - Users can edit their existing reviews.
+    - Changes are saved and reflected in the review section.
+
+    **Tasks:**
+    - Implement review edit functionality.
+    - Create a form for editing reviews.
+    - Design a responsive review edit page.
+    - Ensure changes are saved and displayed correctly.
+
+9. **Filtering Options**
+
+    **Acceptance Criteria:**
+    - Users can filter orders and reviews based on various criteria.
+    - Filtered results are displayed clearly and responsively.
+
+    **Tasks:**
+    - Implement filtering logic for orders and reviews.
+    - Create a filtering form.
+    - Design a responsive filtering interface.
+    - Ensure filtered results are displayed correctly.
+
+10. **Owner - Review Dashboard**
+
+    **Acceptance Criteria:**
+    - Owners can view and manage customer reviews.
+    - Reviews are displayed in a dashboard format.
+
+    **Tasks:**
+    - Create a review dashboard for owners.
+    - Implement review management functionality.
+    - Design a responsive review dashboard.
+    - Ensure reviews are displayed and managed correctly.
+
+11. **Owner - Orders Dashboard**
+
+    **Acceptance Criteria:**
+    - Owners can view and manage incoming orders.
+    - Orders are displayed in a dashboard format.
+
+    **Tasks:**
+    - Create an orders dashboard for owners.
+    - Implement order management functionality.
+    - Design a responsive orders dashboard.
+    - Ensure orders are displayed and managed correctly.
+
+### Could-Haves
+
+12. **Profile Pictures for Users and Staff**
+
+    **Acceptance Criteria:**
+    - Users and staff can upload profile pictures.
+    - Profile pictures are displayed on their profiles.
+
+    **Tasks:**
+    - Implement profile picture upload functionality.
+    - Create a form for uploading profile pictures.
+    - Design a responsive profile picture section.
+    - Ensure profile pictures are displayed correctly.
+
+13. **Messaging System**
+
+    **Acceptance Criteria:**
+    - Users can send and receive messages within the platform.
+    - Messages are displayed in a messaging interface.
+
+    **Tasks:**
+    - Implement a messaging system.
+    - Create a messaging model and form.
+    - Design a responsive messaging interface.
+    - Ensure messages are sent and received correctly.
+
+14. **Personal Profile with Pre-Planned Filters (Allergies, Distastes)**
+
+    **Acceptance Criteria:**
+    - Users can set preferences for allergies and distastes.
+    - Preferences are used to filter available pizzas.
+
+    **Tasks:**
+    - Implement preference setting functionality.
+    - Create a form for setting preferences.
+    - Design a responsive preferences section.
+    - Ensure preferences are used to filter pizzas correctly.
+
+15. **Changing / Removing Toppings**
+
+    **Acceptance Criteria:**
+    - Users can customize their pizzas by changing or removing toppings.
+    - Customizations are reflected in the order details.
+
+    **Tasks:**
+    - Implement topping customization functionality.
+    - Create a form for customizing toppings.
+    - Design a responsive customization interface.
+    - Ensure customizations are saved and displayed correctly.
+
+16. **Changing Crusts**
+
+    **Acceptance Criteria:**
+    - Users can customize their pizzas by changing the crust.
+    - Customizations are reflected in the order details.
+
+    **Tasks:**
+    - Implement crust customization functionality.
+    - Create a form for customizing crusts.
+    - Design a responsive customization interface.
+    - Ensure customizations are saved and displayed correctly.
+
+17. **Order History**
+
+    **Acceptance Criteria:**
+    - Users can view their past orders.
+    - Order history is displayed clearly and responsively.
+
+    **Tasks:**
+    - Create a view for displaying order history.
+    - Design a responsive order history page.
+    - Ensure past orders are displayed correctly.
+
+18. **Saved Orders**
+
+    **Acceptance Criteria:**
+    - Users can save their favorite orders for quick reordering.
+    - Saved orders are displayed in a saved orders section.
+
+    **Tasks:**
+    - Implement saved orders functionality.
+    - Create a form for saving orders.
+    - Design a responsive saved orders section.
+    - Ensure saved orders are displayed and managed correctly.
+
+19. **Reset Password (Requires Email or SMS Integration)**
+
+    **Acceptance Criteria:**
+    - Users can reset their password using email or SMS.
+    - Password reset instructions are sent to the user's email or phone.
+
+    **Tasks:**
+    - Implement password reset functionality.
+    - Integrate email or SMS for password reset.
+    - Design a responsive password reset page.
+    - Ensure password reset instructions are sent correctly.
+
+20. **Add Photo onto Review**
+
+    **Acceptance Criteria:**
+    - Users can add photos to their reviews.
+    - Photos are displayed alongside the review.
+
+    **Tasks:**
+    - Implement photo upload functionality for reviews.
+    - Create a form for adding photos to reviews.
+    - Design a responsive photo section in the review.
+    - Ensure photos are displayed correctly with the review.
 
 ### Sprints
 - **Sprint 1:** Initial Setup - Project, repository, environment setup.
@@ -151,48 +372,33 @@ I used an agile approach to project management. The HealMate development process
 - **Sprint 5:** Deployment & Testing.
 
 ## User Stories
-### Ordering Pizza
+### Guest User Stories (Users Without an Account)
 
-- As a customer, I want to see `special pizzas`, so I can try something new.
-- As a customer, I want to order `multiple pizzas` at once, so I can buy food for my family or group.
+- As a guest, I want to `browse the pizzas`, so I can see what pizzas are available. - Done
+- As a guest, I want to `see the truck’s location`, so I can find out where to get a pizza. - Done
+- As a guest, I want to `sign up` easily, so I can place an order without hassle.
+- As a guest, I want to see `special pizzas`, so I can try something new.
+- As a guest, I want to see `other customer reviews`, so I can decide which pizza to try next.
+
+### Customer User Stories (Users logged in)
+
+- As a customer, I want to see `special pizzas`, so I can try something new.- Done
+- As a customer, I want to `see the truck’s location`, so I can find out where to get a pizza.
+- As a customer, I want to see the `truck’s schedule`, so I know when and where I can pick up my order.
 - As a customer, I want to see an `estimated pickup time`, so I know when my pizza will be ready.
 - As a customer, I want to schedule an order in advance, so I can pick it up at my `preferred time`.
+- As a customer, I want to order `multiple pizzas` at once, so I can buy food for my family or group. - Done
 - As a customer, I want to receive an `order confirmation`, so I know my order was successfully placed.
-
-### Finding the Pizza Truck
-
-- As a customer, I want to view the `live location` of the pizza truck, so I can find it easily.
-- As a customer, I want to see the `truck’s schedule`, so I know when and where I can pick up my order.
-
-### Reviews & Feedback
-
 - As a customer, I want to see `other customer reviews`, so I can decide which pizza to try next.
 - As a customer, I want to `leave a review` after my order, so I can share my experience.
 
 ## Admin (Business Owner) User Stories
-### Order Management
-
-- As an admin, I want to `view and manage incoming orders`, so I can prepare them efficiently.
-- As an admin, I want to update `order status`, so customers know when their pizza is ready.
-
-### Menu Management
-
 - As an admin, I want to `feature special pizzas`, so customers can see what’s new.
-
-### Truck Location & Schedule
-
-- As an admin, I want to `update the truck’s live location`, so customers can find us easily.
-- As an admin, I want to `set weekly schedules`, so customers can plan their visits.
-
-### Customer Engagement
-
+- As a admin, I want to `set the truck’s location`.
+- As an admin I want to `set weekly schedules`, so customers can plan their visits.
+- As an admin, I want to `view and manage incoming orders`, so I can prepare them efficiently.
+- As an admin, I want to update `order status` and `estimated pickup time`, so customers know when their pizza is ready.
 - As an admin, I want to `view & approve customer reviews`, so I can improve my service.
-
-## Guest User Stories (Users Without an Account)
-
-- As a guest, I want to `browse the pizzas`, so I can see what pizzas are available.
-- As a guest, I want to `view the truck’s location`, so I can find out where to get a pizza.
-- As a guest, I want to `sign up` easily, so I can place an order without hassle.
 
 ## Scope Plane
 
@@ -210,35 +416,35 @@ Wireframes were created for the following key pages to ensure an intuitive user 
 
 <details open>
     <summary>Wireframe - Main Page (Index Page) - Over Multiple Devices</summary>  
-    <img src="Planning Files/Wireframes-Multi-Device.jpg"> 
+    <img src="planning_files/Wireframes-Multi-Device.jpg"> 
 </details>
 <details>
     <summary>Wireframe - Find Pizza Page</summary>  
-    <img src="Planning Files/wireframe-find-pizza-page.jpg"> 
+    <img src="planning_files/wireframe-find-pizza-page.jpg"> 
 </details>
 <details>
     <summary>Wireframe - Order Pizza Page - Logged In</summary>  
-    <img src="Planning Files/Wireframe-Order-Pizza-LoggedIn.jpg"> 
+    <img src="planning_files/Wireframe-Order-Pizza-LoggedIn.jpg"> 
 </details>
 <details>
     <summary>Wireframe - Order Pizza Page - Logged Out</summary>  
-    <img src="Planning Files/Wireframe-Order-Pizza-LoggedOut.jpg"> 
+    <img src="planning_files/Wireframe-Order-Pizza-LoggedOut.jpg"> 
 </details>
 <details>
     <summary>Wireframe - Reviews Page</summary>  
-    <img src="Planning Files/Wireframe-Reviews-Page.jpg"> 
+    <img src="planning_files/Wireframe-Reviews-Page.jpg"> 
 </details>
 <details>
     <summary>Wireframe - Specials Page</summary>  
-    <img src="Planning Files/Wireframe-Specials-Page.jpg"> 
+    <img src="planning_files/Wireframe-Specials-Page.jpg"> 
 </details>
 <details>
     <summary>Wireframe - Register Page</summary>  
-    <img src="Planning Files/Wireframe-Register-Page.jpg"> 
+    <img src="planning_files/Wireframe-Register-Page.jpg"> 
 </details>
 <details>
     <summary>Wireframe - Login / Logout Page</summary>  
-    <img src="Planning Files/Wireframe-LoginLogout.jpg"> 
+    <img src="planning_files/Wireframe-LoginLogout.jpg"> 
 </details>
 <br />
 Wireframes were designed using [Balsamiq](https://balsamiq.com/), ensuring responsiveness across devices.
@@ -287,7 +493,7 @@ OrderItem (Many-to-Many between Order & Pizza)
 > - Payment_status (varchar(8)) - Example (Paid, Pending, Failed)
 > - Transaction_ID (Integer)
 
-![Initial ERD](<Planning Files/Initial-ERD.jpg>)
+![Initial ERD](<planning_files/Initial-ERD.jpg>)
 
 The above ERD was generated using 
 
