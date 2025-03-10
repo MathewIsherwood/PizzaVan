@@ -133,14 +133,13 @@ I used an agile approach to project management. The PizzaMe development process 
     **Tasks:**
     - Set up Django AllAuth for user authentication.
     - Create registration and login forms.
-    - Implement email confirmation for new users.
+    - Implement on screen confirmation for new users.
     - Design responsive registration and login pages.
 
 2. **Notifications**
 
     **Acceptance Criteria:**
     - Users receive notifications for order status updates.
-    - Users can view notifications in their dashboard.
 
     **Tasks:**
     - Implement a notification system using Django signals.

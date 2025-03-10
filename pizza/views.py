@@ -7,3 +7,4 @@ def index(request):
     :template:`pizza/index.html`
     """
     return render(request, 'pizza/index.html')
+

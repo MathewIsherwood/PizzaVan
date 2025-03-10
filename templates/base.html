@@ -54,9 +54,6 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == reviews %}active" aria-current="page{% endif %}" href="{% url 'reviews' %}">Reviews</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link {% if request.path == specials %}active" aria-current="page{% endif %}" href="{% url 'specials' %}">Specials</a>
                     </li>
                     {% endif %}
