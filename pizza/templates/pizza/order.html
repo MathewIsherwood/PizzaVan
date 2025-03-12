@@ -4,20 +4,46 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-4 text-center">
-                
+      <p>TEST BLOCK</p>         
     </div>
     <div class="col-8">
       <!-- Title goes between these h2 tags -->
-      <h2>This is the order page placeholder text</h2>
+      <h2>TEST TITLE</h2>
       <!-- Content goes directly underneath this -->
-      
-    </div>
-  </div>
-  <div class="row">
-    <div class="col text-right">
-      <!-- Updated on field goes in here -->
-
-      <p class="text-end"><em>Updated on: </em></p>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Pizza's Available -->
+          <div class="col-12 mt-3 left">
+            <div class="row">
+              {% for pizza in pizza_list %}
+              <div class="col-md-4">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="image-container">
+                      {% if "placeholder" in pizza.featured_image.url %}
+                      <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                      {% else %}
+                      <img class="card-img-top" src="{{ pizza.featured_image.url }}" alt="{{ pizza.name }}">
+                      {% endif %}
+                      <div class="image-flash">
+                        <p class="Pizza">Pizza: {{ pizza.name }}</p>
+                        <p class="Size">Size: {{ pizza.size }}</p>
+                        <p class="Price">Price: {{ pizza.price }}</p>
+                      </div>
+                    </div>                       
+                    <p class="card-text">{{ pizza.description }}</p>
+                  </div>
+                </div>
+              </div>
+              {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div> 
     </div>
   </div>
 </div>

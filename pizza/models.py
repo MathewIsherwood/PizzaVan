@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -25,7 +26,8 @@ class Pizza(models.Model):
     size = models.CharField(max_length=6, choices=[('Small', 'Small'), ('Medium', 'Medium'), ('Large', 'Large')])
     price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField()
-
+    featured_image = CloudinaryField('image', default='placeholder')
+    enabled = models.BooleanField(default=False, choices=[(True, 'Yes'), (False, 'No')])
 
 class OrderItem(models.Model):
     """ 

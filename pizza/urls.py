@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('order/', views.order, name='order_url'),
+    path("order/", views.PizzaList.as_view(), name='order_url'),
 ]

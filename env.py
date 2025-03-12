@@ -14,5 +14,14 @@ os.environ.setdefault(
 os.environ.setdefault('DEBUG', 'TRUE')
 os.environ.setdefault(
     "CLOUDINARY_URL", 
-    "cloudinary://664772432717391:wFr5MDgP0LcWBlAwByaSDjsLAMw"
+    "cloudinary://664772432717391:wFr5MDgP0LcWBlAwByaSDjsLAMw@dsnl1wuvh"
 )
+
+# Cloudinary configuration
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('PizzaMe'),
+    'API_KEY': os.environ.get('664772432717391'),
+    'API_SECRET': os.environ.get('wFr5MDgP0LcWBlAwByaSDjsLAMw'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

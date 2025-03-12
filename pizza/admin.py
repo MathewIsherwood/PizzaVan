@@ -11,12 +11,12 @@ class OrderAdmin(admin.ModelAdmin):
     """
     This class is used to configure the Order model in the admin interface.
     """
-    list_display = ('status', 'total_price', 'forward_order', 'forward_order_time')
+    list_display = ('status', 'total_price', 'forward_order', 'forward_order_time',)
     
 @admin.register(Pizza)
 class PizzaAdmin(admin.ModelAdmin):
-    list_display = ('name', 'size', 'price', 'description')
-    list_filter = ('name', 'size',)
+    list_display = ('name', 'size', 'price', 'description', 'featured_image', 'enabled',)
+    list_filter = ('name', 'size','enabled',)
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
