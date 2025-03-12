@@ -8,3 +8,10 @@ def index(request):
     """
     return render(request, 'pizza/index.html')
 
+
+def order(request):
+    """
+    **Template:**
+    :template:`pizza/order.html`
+    """
+    return render(request, 'pizza/order.html')

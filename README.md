@@ -30,7 +30,7 @@ Github repository, click <a href="https://github.com/MathewIsherwood/PizzaVan" t
     - [Role-Based Dashboard Features](#role-based-dashboard-features)
     - [Role-Based Navigation](#role-based-navigation)
     - [Soft Delete/Archiving for Patient Accounts](#soft-deletearchiving-for-patient-accounts)
-    - [Appointment Booking System](#appointment-booking-system)
+    - [Order System](#order-system)
     - [Messaging System](#messaging-system)
     - [Profile Management](#profile-management)
     - [Confirmation Messages](#confirmation-messages)
@@ -159,39 +159,39 @@ I used an agile approach to project management. The PizzaMe development process 
     - Design a responsive order creation page.
     - Display a confirmation message upon order creation.
 
-4. **Edit Booking**
+4. **Edit Order**
 
     **Acceptance Criteria:**
-    - Users can edit their existing bookings.
-    - Changes are saved and reflected in the user's booking history.
+    - Users can edit their existing order.
+    - Changes are saved and reflected in the user's order history.
 
     **Tasks:**
-    - Implement booking edit functionality.
-    - Create a form for editing bookings.
-    - Design a responsive booking edit page.
+    - Implement order edit functionality.
+    - Create a form for editing order.
+    - Design a responsive order edit page.
     - Ensure changes are saved and displayed correctly.
 
-5. **View Booking**
+5. **View Order**
 
     **Acceptance Criteria:**
-    - Users can view their current and past bookings.
-    - Booking details are displayed clearly and responsively.
+    - Users can view their current and past order.
+    - Order details are displayed clearly and responsively.
 
     **Tasks:**
-    - Create a view for displaying user bookings.
-    - Design a responsive booking history page.
-    - Ensure booking details are displayed correctly.
+    - Create a view for displaying user order.
+    - Design a responsive order history page.
+    - Ensure order details are displayed correctly.
 
-6. **Delete Booking**
+6. **Delete Order**
 
     **Acceptance Criteria:**
-    - Users can delete their existing bookings.
-    - Deleted bookings are removed from the user's booking history.
+    - Users can delete their existing order.
+    - Deleted order are removed from the user's order history.
 
     **Tasks:**
-    - Implement booking deletion functionality.
-    - Add a delete button to the booking history page.
-    - Ensure bookings are removed from the database upon deletion.
+    - Implement order deletion functionality.
+    - Add a delete button to the order history page.
+    - Ensure order are removed from the database upon deletion.
 
 ### Should-Haves
 
@@ -366,7 +366,7 @@ I used an agile approach to project management. The PizzaMe development process 
 ### Sprints
 - **Sprint 1:** Initial Setup - Project, repository, environment setup.
 - **Sprint 2:** User Authentication & Role-Based Dashboards.
-- **Sprint 3:** Specialist Search & Appointment Booking System.
+- **Sprint 3:** Specialist Search & Item Order System.
 - **Sprint 4:** Static Pages & UI/UX Improvements.
 - **Sprint 5:** Deployment & Testing.
 
@@ -406,7 +406,7 @@ The PizzaMe platform will include the following MVP functionalities:
 - Search and filtering system
 
 ## Structural Plane
-The site is structured around an easy-to-use interface. The primary menu includes links to bookings and user profile management.
+The site is structured around an easy-to-use interface. The primary menu includes links to orders and user profile management.
 
 ## Skeleton & Surface Planes
 
@@ -490,24 +490,24 @@ OrderItem (Many-to-Many between Order & Pizza)
 > - Order_ID (FK → Order) (Integer)
 > - Payment_method (varchar(12)) - Example (Credit Card, PayPal, Cash)
 > - Payment_status (varchar(8)) - Example (Paid, Pending, Failed)
-> - Transaction_ID (Integer)
 
 ![Initial ERD](<planning_files/Initial-ERD.jpg>)
 
-The above ERD was generated using 
-
-`python manage.py inspectdb > show_database.txt to check fields on user table.`
+The above ERD was generated using https://dbdiagram.io/
 
 `Check authentication: I Think Therefore I Blog > Authentication > Django AllAuth`
 
 ~~~
 Table userAllauth {
-ID Integer [primary key]
-Name varchar(100)
-Email varachar(100)
-Password varchar(20)
-Phone Integer
-Role varchar(10)
+id (AutoField): [primary key]
+username (CharField): [note:'Required. 150 characters or fewer. Usernames may contain alphanumeric, _, @, +, . and - characters.']
+first_name (CharField): [note:'Optional. 150 characters or fewer.']
+last_name (CharField): [note:'Optional. 150 characters or fewer.']
+email (EmailField): [note:'Optional. 254 characters or fewer.']
+password (CharField): [note:'Required. A hashed representation of the user's password.']
+is_staff (BooleanField): [note:'Designates whether the user can log into the admin site.']
+is_active (BooleanField): [note:'Designates whether this user should be treated as active.']
+date_joined (DateTimeField): [note:'The date and time when the user account was created.']
 }
 
 Table order{
@@ -540,7 +540,6 @@ ID Integer [primary key]
 Order_ID Integer [note:'(FK → Order)']
 Payment_method varchar(12) [note: 'Credit Card, PayPal, Cash']
 Payment_status varchar(8) [note: 'Paid, Pending, Failed']
-Transaction_ID Integer
 }
 
 Ref: userAllauth.ID < order.User_ID

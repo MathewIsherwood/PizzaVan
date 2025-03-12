@@ -1,29 +1,48 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import pizza, order, order_item, payment
+from .models import Pizza, Order, OrderItem, Payment
+from django import forms
 
 # Register your models here.
-@admin.register(order)
-class orderAdmin(SummernoteModelAdmin):
+
+# MoSCoW Prioritization - Must Have
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
     """
-    This class is used to configure the about app.
-    **Context**
+    This class is used to configure the Order model in the admin interface.
     """
-    summernote_fields = ('ID', 'UserID', 'Order_date', 'Status', 'Total_price','Forward_order','Forward_order_time')
+    list_display = ('status', 'total_price', 'forward_order', 'forward_order_time')
     
-  
-"""@admin.register(pizza)
-class CollaborateRequestAdmin(admin.ModelAdmin):
+@admin.register(Pizza)
+class PizzaAdmin(admin.ModelAdmin):
+    list_display = ('name', 'size', 'price', 'description')
+    list_filter = ('name', 'size',)
 
-    list_display = ('message', 'read',)
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ('quantity',)
 
-@admin.register(order_item)
-class CollaborateRequestAdmin(admin.ModelAdmin):
 
-    list_display = ('message', 'read',)
+# MoSCoW Prioritization - Should Have
+class PaymentAdminForm(forms.ModelForm):
+    class Meta:
+        model = Payment
+        fields = ('payment_method', 'payment_status')
+        widgets = {
+            'payment_method': forms.Select(choices=[
+                ('Credit Card', 'Credit Card'),
+                ('PayPal', 'PayPal'),
+                ('Cash', 'Cash'),
+            ]),
+            'payment_status': forms.Select(choices=[
+                ('Paid', 'Paid'),
+                ('Pending', 'Pending'),
+                ('Failed', 'Failed'),
+            ]),
+        }
 
-@admin.register(payment)
-class CollaborateRequestAdmin(admin.ModelAdmin):
-
-    list_display = ('message', 'read',)
-"""
+@admin.register(Payment)
+class PaymentAdmin(admin.ModelAdmin):
+    form = PaymentAdminForm
+    list_display = ('payment_method', 'payment_status')
+    list_filter = ('payment_method',)
