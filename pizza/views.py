@@ -105,3 +105,17 @@ def my_orders(request):
         user_id=request.user).order_by(
             '-forward_order_time')
     return render(request, 'pizza/my_orders.html', {'orders': orders})
+
+
+@login_required
+def update_pizza_quantity(request, item_id):
+    if request.method == 'POST':
+        order_item = get_object_or_404(OrderItem,
+                                       id=item_id,
+                                       order__user=request.user)
+        new_quantity = int(request.POST.get('quantity', 1))
+        order_item.quantity = new_quantity
+        order_item.save()
+        messages.success(request,
+                         'The quantity has been updated successfully.')
+    return HttpResponseRedirect(reverse('order_url'))

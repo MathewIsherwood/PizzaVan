@@ -17,4 +17,8 @@ urlpatterns = [
          views.my_orders,
          name='my_orders'
          ),
+    path("update_pizza_quantity/<int:item_id>/",
+         views.update_pizza_quantity,
+         name='update_pizza_quantity'
+         ),
 ]
