@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}My Orders{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+    <h2>My Orders</h2>
+    {% if orders %}
+        {% for order in orders %}
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5>Order ID: {{ order.id }}</h5>
+                    <p>Status: {{ order.status }}</p>
+                    <p>Total Price: £{{ order.total_price }}</p>
+                    <p>Order Date: {{ order.forward_order_time }}</p>
+                </div>
+                <div class="card-body">
+                    <h6>Pizzas in this order:</h6>
+                    <ul>
+                        {% for item in order.orderitem_set.all %}
+                            <li>
+                                <img src="{{ item.pizza.featured_image.url }}" alt="{{ item.pizza.name }}" class="img-thumbnail" style="width: 100px; height: auto;">
+                                <strong>{{ item.pizza.name }}</strong> - Size: {{ item.pizza.size }}, Quantity: {{ item.quantity }}, Price: £{{ item.pizza.price }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>You have no orders.</p>
+    {% endif %}
+</div>
+{% endblock content %}

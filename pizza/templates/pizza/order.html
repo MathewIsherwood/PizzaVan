@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+
+{% block title %}PizzaMe! Order Pizza Page{% endblock title %}
+{% block description %}Order your favorite pizza from PizzaMe!{% endblock description %}
+{% block keywords %}pizza, order, food, delivery{% endblock keywords %}
+
 {% block content %}
 {% load static %}
 <div class="container mt-5">
@@ -32,6 +37,10 @@
                       </div>
                     </div>                       
                     <p class="card-text">{{ pizza.description }}</p>
+                    <a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a>
+                    {% if user.is_authenticated%} 
+                    <a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
                   </div>
                 </div>
               </div>
@@ -43,6 +52,22 @@
             </div>
           </div>
         </div>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+              {% if page_obj.has_previous %}
+                <li>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+                </li>
+              {% endif %}
+              {% if page_obj.has_next %}
+                <li>
+                  <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a>
+                </li>
+              {% endif %}
+          </ul>
+        </nav>
+    {% endif %}
       </div> 
     </div>
   </div>
