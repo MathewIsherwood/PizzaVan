@@ -37,20 +37,23 @@
                       </div>
                     </div>                       
                     <p class="card-text">{{ pizza.description }}</p>
-                    <a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a>
-                    {% if user.is_authenticated %}
-                      {% for item in user.order_set.first.orderitem_set.all %}
-                        {% if item.pizza.id == pizza.id %}
-                          <form method="post" action="{% url 'update_pizza_quantity' item.id %}">
-                            {% csrf_token %}
-                            <label for="quantity">Quantity:</label>
-                            <input type="number" id="quantity" name="quantity" value="{{ item.quantity }}" min="1">
-                            <button type="submit" class="btn btn-secondary">Update</button>
-                          </form>
-                        {% endif %}
-                      {% endfor %}
-                      <a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger">Delete</a>
+                    {% if user.is_authenticated and cart_order %}
+                      {% with cart_order.orderitem_set.all as order_items %}
+                        {% for order_item in order_items %}
+                          {% if order_item.pizza_id_id == pizza.id %}
+                            <p class="card-text">Quantity in Basket: {{ order_item.quantity }}</p>
+                            <form method="post" action="{% url 'update_pizza_quantity' order_item.id %}">
+                              {% csrf_token %}
+                              <label for="quantity">Quantity:</label>
+                              <input type="number" id="quantity" name="quantity" value="{{ order_item.quantity }}" min="1">
+                              <button type="submit" class="btn btn-secondary">Update</button>
+                            </form>
+                          {% endif %}
+                        {% endfor %}
+                      {% endwith %}
                     {% endif %}
+                    <a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a>
+                    <a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger">Delete</a>
                   </div>
                 </div>
               </div>

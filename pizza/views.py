@@ -16,6 +16,14 @@ class PizzaList(generic.ListView):
     template_name = "pizza/order.html"
     paginate_by = 12
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['cart_order'] = Order.objects.filter(
+                user_id=self.request.user.id,
+                status='Cart').first()
+        return context
+
 
 def index(request):
     """
@@ -77,22 +85,33 @@ def order_pizza(request, id):
 
 @login_required
 def delete_pizza_order(request, id):
-    order = Order.objects.get(
-        user_id=request.user
+    today = timezone.now().date()
+    order = Order.objects.filter(
+        user_id=request.user,
+        forward_order_time__date=today
+    ).first()
+
+    if not order:
+        messages.error(request,
+                       'No order on file, you haven\'t started your order yet.'
+                       )
+        return HttpResponseRedirect(reverse('order_url'))
+
+    try:
+        order_item_to_delete = OrderItem.objects.get(
+            order_id=order,
+            pizza_id=id
         )
-    order_item_to_delete = get_object_or_404(
-        OrderItem,
-        order_id=order,
-        pizza_id=id
-        )
+    except OrderItem.DoesNotExist:
+        messages.error(request,
+                       'This pizza is not on your order to delete, so you cannot delete it.'
+                       )
+        return HttpResponseRedirect(reverse('order_url'))
 
     if order.user_id == request.user:
         # Delete the specific OrderItem
         order_item_to_delete.delete()
-        messages.success(
-            request,
-            'Your pizza has been removed from your basket successfully.'
-            )
+        messages.success(request, 'Your pizza has been removed from your basket successfully.')
     else:
         messages.error(request, 'You can only delete your own pizzas!')
 
@@ -112,7 +131,7 @@ def update_pizza_quantity(request, item_id):
     if request.method == 'POST':
         order_item = get_object_or_404(OrderItem,
                                        id=item_id,
-                                       order__user=request.user)
+                                       order_id__user_id=request.user.id)
         new_quantity = int(request.POST.get('quantity', 1))
         order_item.quantity = new_quantity
         order_item.save()
