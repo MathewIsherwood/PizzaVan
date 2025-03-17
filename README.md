@@ -399,6 +399,9 @@ I used an agile approach to project management. The PizzaMe development process 
 - As an admin, I want to update `order status` and `estimated pickup time`, so customers know when their pizza is ready.
 - As an admin, I want to `view & approve customer reviews`, so I can improve my service.
 
+## Flow Diagram
+![User Flow Diagram](planning_files/UserFlowDiagram.jpg)
+
 ## Scope Plane
 
 The PizzaMe platform will include the following MVP functionalities:
