@@ -19,11 +19,15 @@ class PizzaList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
-            context['cart_order'] = Order.objects.filter(
-                user_id=self.request.user.id,
-                status='Cart').first()
+            today = timezone.now().date()
+            cart_order = Order.objects.filter(user_id=self.request.user.id, status='Cart', order_date__date=today).first()
+            if cart_order:
+                print(f"Cart Order: {cart_order}")  # Debug statement
+                order_items = cart_order.orderitem_set.filter(order_id__order_date__date=today)
+                print(f"Order Items: {order_items}")  # Debug statement
+                context['order_items'] = order_items
+            context['cart_order'] = cart_order
         return context
-
 
 def index(request):
     """
@@ -129,12 +133,16 @@ def my_orders(request):
 @login_required
 def update_pizza_quantity(request, item_id):
     if request.method == 'POST':
-        order_item = get_object_or_404(OrderItem,
-                                       id=item_id,
-                                       order_id__user_id=request.user.id)
+        today = timezone.now().date()
+        order_item = get_object_or_404(OrderItem, id=item_id, order_id__user_id=request.user.id)
+        
+        # Check if the order is from today
+        if order_item.order_id.order_date.date() != today:
+            messages.error(request, 'You can only update orders from today.')
+            return HttpResponseRedirect(reverse('order_url'))
+        
         new_quantity = int(request.POST.get('quantity', 1))
         order_item.quantity = new_quantity
         order_item.save()
-        messages.success(request,
-                         'The quantity has been updated successfully.')
+        messages.success(request, 'The quantity has been updated successfully.')
     return HttpResponseRedirect(reverse('order_url'))

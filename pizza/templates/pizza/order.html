@@ -37,20 +37,32 @@
                       </div>
                     </div>                       
                     <p class="card-text">{{ pizza.description }}</p>
-                    {% if user.is_authenticated and cart_order %}
-                      {% with cart_order.orderitem_set.all as order_items %}
-                        {% for order_item in order_items %}
-                          {% if order_item.pizza_id_id == pizza.id %}
-                            <p class="card-text">Quantity in Basket: {{ order_item.quantity }}</p>
-                            <form method="post" action="{% url 'update_pizza_quantity' order_item.id %}">
-                              {% csrf_token %}
-                              <label for="quantity">Quantity:</label>
-                              <input type="number" id="quantity" name="quantity" value="{{ order_item.quantity }}" min="1">
-                              <button type="submit" class="btn btn-secondary">Update</button>
-                            </form>
-                          {% endif %}
-                        {% endfor %}
-                      {% endwith %}
+                    {% if user.is_authenticated %}
+                      <p>User is authenticated</p>
+                      {% if cart_order %}
+                        <p>Cart order exists</p>
+                        {% if order_items %}
+                          <p>Order items exist</p>
+                          {% for order_item in order_items %}
+                            <p>Order item: {{ order_item }}</p>
+                            {% if order_item.pizza_id_id == pizza.id %}
+                              <p class="card-text">Quantity in Basket: {{ order_item.quantity }}</p>
+                              <form method="post" action="{% url 'update_pizza_quantity' order_item.id %}">
+                                {% csrf_token %}
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" value="{{ order_item.quantity }}" min="1">
+                                <button type="submit" class="btn btn-secondary">Update</button>
+                              </form>
+                            {% endif %}
+                          {% endfor %}
+                        {% else %}
+                          <p>No order items found</p>
+                        {% endif %}
+                      {% else %}
+                        <p>No cart order</p>
+                      {% endif %}
+                    {% else %}
+                      <p>User is not authenticated</p>
                     {% endif %}
                     <a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a>
                     <a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger">Delete</a>

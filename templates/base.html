@@ -44,10 +44,11 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarText">
+            <div class="collapse navbar-collapse" id="navbarTextLeft">
+                <span class="navbar-text-left">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == index_url %}active" aria-current="page{%endif%}" href="{% url 'index' %}">Home</a>
+                        <a class="nav-link {% if request.path == index %}active" aria-current="page{%endif%}" href="{% url 'index' %}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == order_url %}active" aria-current="page{% endif %}" href="{% url 'order_url' %}">Order Pizza</a>
@@ -55,9 +56,6 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == my_orders %}active" aria-current="page{% endif %}" href="{% url 'my_orders' %}">My Orders</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -68,8 +66,14 @@
                     </li>
                     {% endif %}
                 </ul>
+                </span>
                 <span class="navbar-text text-muted">
-                    PizzaMe!
+                    {% if user.is_authenticated %}
+                        <span>You are logged in as {{ user }}.</span>
+                        <a class="nav-link d-inline {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}">Logout</a>
+                    {% else %}
+                        <span>Please login to order pizza from PizzaMe!</span>
+                    {% endif %}
                 </span>
             </div>
         </div>
@@ -88,9 +92,6 @@
     </div>
 
     <main class="flex-shrink-0 main-bg">
-        {% if user.is_authenticated %}<p class="text-end m-3">You are logged in as {{ user }}</p>
-        {% else %}<p class="text-end m-3">You are not logged in</p>
-        {% endif %}
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}

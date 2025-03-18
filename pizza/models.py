@@ -73,7 +73,7 @@ class OrderItem(models.Model):
         verbose_name=("Pizza_ID"),
         on_delete=models.CASCADE
         )
-    quantity = models.IntegerField()
+    quantity = models.PositiveIntegerField()
 
 
 # MoSCoW Prioritization - Should Have

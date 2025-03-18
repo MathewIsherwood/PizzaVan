@@ -18,6 +18,7 @@ class OrderAdmin(admin.ModelAdmin):
         'user_id',
         'status',
         'total_price',
+        'order_date',
         'forward_order',
         'forward_order_time',
         )
