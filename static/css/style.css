@@ -1,3 +1,13 @@
+* {
+    a{
+        text-decoration: none;
+    }
+
+    a:active{
+        text-decoration: underline;
+    }
+}
+
 .navbar-text-left {
     flex: 1;
     text-align: left;
@@ -96,16 +106,6 @@ body {
     z-index: 100;
 }
 
-.profile-image {
-    width: 75%;
-}
-
-.post-link {
-    text-decoration: none;
-    color: #445261;
-}
-
-.post-link:hover,
 .page-link {
     color: #E84610;
 }
@@ -120,16 +120,9 @@ body {
     color: lightgray;
 }
 
-.btn-signup,
 .btn-edit {
     background-color: #188181;
     color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
 }
 
 .link {
@@ -143,22 +136,9 @@ body {
     text-decoration: underline;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
 .btn-delete {
     color: #fff;
     background: #E84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
 }
 
 .faded {
@@ -167,4 +147,8 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+.btn-custom-width {
+    width: 100px; 
 }

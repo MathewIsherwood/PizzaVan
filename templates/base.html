@@ -48,21 +48,21 @@
                 <span class="navbar-text-left">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == index %}active" aria-current="page{%endif%}" href="{% url 'index' %}">Home</a>
+                        <a class="nav-link {% if index in request.path %}active" aria-current="page{%endif%}" href="{% url 'index' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == order_url %}active" aria-current="page{% endif %}" href="{% url 'order_url' %}">Order Pizza</a>
+                        <a class="nav-link {% if order_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'order_url' %}">Order Pizza</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == my_orders %}active" aria-current="page{% endif %}" href="{% url 'my_orders' %}">My Orders</a>
+                        <a class="nav-link {% if my_orders in request.path %}active" aria-current="page{% endif %}" href="{% url 'my_orders' %}">My Orders</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link {% if signup_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% if login_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -70,9 +70,7 @@
                 <span class="navbar-text text-muted">
                     {% if user.is_authenticated %}
                         <span>You are logged in as {{ user }}.</span>
-                        <a class="nav-link d-inline {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}">Logout</a>
-                    {% else %}
-                        <span>Please login to order pizza from PizzaMe!</span>
+                        <a class="nav-link d-inline {% if logout_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}">Logout</a>
                     {% endif %}
                 </span>
             </div>

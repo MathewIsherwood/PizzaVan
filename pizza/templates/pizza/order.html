@@ -3,21 +3,21 @@
 {% block title %}PizzaMe! Order Pizza Page{% endblock title %}
 {% block description %}Order your favorite pizza from PizzaMe!{% endblock description %}
 {% block keywords %}pizza, order, food, delivery{% endblock keywords %}
-
 {% block content %}
 {% load static %}
+
 <div class="container mt-5">
   <div class="row">
-    <div class="col-4 text-center">
-      <p>TEST BLOCK</p>         
-    </div>
-    <div class="col-8">
+    <div class="col-12">
       <!-- Title goes between these h2 tags -->
-      <h2>TEST TITLE</h2>
+      <h2 class="text-center">Buy a Pizza here <u>TODAY</u></h2>
       <!-- Content goes directly underneath this -->
       <div class="container-fluid">
         <div class="row">
           <!-- Pizza's Available -->
+          {% if not user.is_authenticated %}
+          <p class="text-center">Please <a href="{% url 'account_login' %}">login</a> to order pizza, or <a href="{% url 'account_signup' %}">Register</a> if you are new here!</p>
+          {% endif %}
           <div class="col-12 mt-3 left">
             <div class="row">
               {% for pizza in pizza_list %}
@@ -38,34 +38,34 @@
                     </div>                       
                     <p class="card-text">{{ pizza.description }}</p>
                     {% if user.is_authenticated %}
-                      <p>User is authenticated</p>
                       {% if cart_order %}
-                        <p>Cart order exists</p>
                         {% if order_items %}
-                          <p>Order items exist</p>
                           {% for order_item in order_items %}
-                            <p>Order item: {{ order_item }}</p>
                             {% if order_item.pizza_id_id == pizza.id %}
-                              <p class="card-text">Quantity in Basket: {{ order_item.quantity }}</p>
-                              <form method="post" action="{% url 'update_pizza_quantity' order_item.id %}">
+                              <form method="post" action="{% url 'update_pizza_quantity' order_item.id %}" class="d-flex align-items-center">
                                 {% csrf_token %}
-                                <label for="quantity">Quantity:</label>
-                                <input type="number" id="quantity" name="quantity" value="{{ order_item.quantity }}" min="1">
-                                <button type="submit" class="btn btn-secondary">Update</button>
+                                <label for="quantity" class="me-2">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" value="{{ order_item.quantity }}" min="1" class="form-control me-2" style="width: 60px;">
+                                <button type="submit" class="btn btn-secondary btn-custom-width">Update</button>
                               </form>
                             {% endif %}
                           {% endfor %}
-                        {% else %}
-                          <p>No order items found</p>
                         {% endif %}
-                      {% else %}
-                        <p>No cart order</p>
                       {% endif %}
                     {% else %}
-                      <p>User is not authenticated</p>
-                    {% endif %}
-                    <a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a>
-                    <a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger">Delete</a>
+                    {% endif %} 
+                    {% if user.is_authenticated %}
+                      <a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a>
+                      {% if cart_order %}
+                        {% if order_items %}
+                          {% for order_item in order_items %}
+                            {% if order_item.pizza_id_id == pizza.id %}
+                              <a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger btn-custom-width">Delete</a>
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endif %}
+                    {% endif %}        
                   </div>
                 </div>
               </div>

@@ -11,15 +11,19 @@
                     <h5>Order ID: {{ order.id }}</h5>
                     <p>Status: {{ order.status }}</p>
                     <p>Total Price: £{{ order.total_price }}</p>
-                    <p>Order Date: {{ order.forward_order_time }}</p>
+                    <p>Order Date: {{ order.order_date }}</p>
+                    {% if order.forward_order %}
+                        <p>Forward Order: {{ order.forward_order|yesno:"Yes,No" }}</p>
+                        <p>Forward Order Time: {{ order.forward_order_time }}</p>
+                    {% endif %}
                 </div>
                 <div class="card-body">
                     <h6>Pizzas in this order:</h6>
                     <ul>
                         {% for item in order.orderitem_set.all %}
                             <li>
-                                <img src="{{ item.pizza.featured_image.url }}" alt="{{ item.pizza.name }}" class="img-thumbnail" style="width: 100px; height: auto;">
-                                <strong>{{ item.pizza.name }}</strong> - Size: {{ item.pizza.size }}, Quantity: {{ item.quantity }}, Price: £{{ item.pizza.price }}
+                                <img src="{{ item.pizza_id.featured_image.url }}" alt="{{ item.pizza_id.name }}" class="img-thumbnail" style="width: 100px; height: auto;">
+                                <strong>{{ item.pizza_id.name }}</strong> - Size: {{ item.pizza_id.size }}, Quantity: {{ item.quantity }}, Price: £{{ item.pizza_id.price }}
                             </li>
                         {% endfor %}
                     </ul>
