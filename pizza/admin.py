@@ -44,6 +44,7 @@ class PizzaAdmin(admin.ModelAdmin):
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
     list_display = (
+        'id',
         'order_id',
         'pizza_id',
         'quantity',

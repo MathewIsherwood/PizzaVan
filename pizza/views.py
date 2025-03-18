@@ -59,15 +59,26 @@ def order_pizza(request, id):
         forward_order_time__date=today).first()
 
     if existing_order:
-        # If an order exists, add the pizza to the existing order
-        OrderItem.objects.create(
-            order_id=existing_order,
-            pizza_id=pizza,
-            quantity=1
+        # If an order exists, check if the pizza is already in the order
+        order_item = existing_order.orderitem_set.filter(pizza_id=pizza).first()
+        if order_item:
+            # Increment the quantity if the pizza is already in the order
+            order_item.quantity += 1
+            order_item.save()
+            messages.success(
+                request,
+                'The quantity of the pizza in your order has been updated successfully.'
             )
-        messages.success(
-            request,
-            'Your item has been added to your existing order successfully.'
+        else:
+            # Add the pizza to the existing order
+            OrderItem.objects.create(
+                order_id=existing_order,
+                pizza_id=pizza,
+                quantity=1
+                )
+            messages.success(
+                request,
+                'Your item has been added to your existing order successfully.'
             )
     else:
         # Create a new order

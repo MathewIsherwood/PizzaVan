@@ -120,11 +120,6 @@ body {
     color: lightgray;
 }
 
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
-}
-
 .link {
     color: #23BBBB;
     text-decoration: none;
@@ -136,11 +131,6 @@ body {
     text-decoration: underline;
 }
 
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
 .faded {
     color: rgb(172, 175, 175);
 }
@@ -149,18 +139,59 @@ body {
     color: rgb(222, 146, 168);
 }
 
+.btn-edit {
+    background-color: #188181;
+    color: #fff;
+}
+
+.btn-delete {
+    color: #fff;
+    background: #E84610;
+}
+
 .btn-custom-width {
     width: 100px; 
 }
 
 .btn-signup,
 .btn-edit {
-    background-color: #188181;
-    color: #fff;
+    background-color: #f00;
+    color: #f00;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #fff;
+    background-color: #00f;
     color: #23BBBB;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
 }
