@@ -25,10 +25,8 @@ class PizzaList(generic.ListView):
                                               status='Cart',
                                               order_date__date=today).first()
             if cart_order:
-                print(f"Cart Order: {cart_order}")  # Debug statement
                 order_items = cart_order.orderitem_set.filter(
                     order_id__order_date__date=today)
-                print(f"Order Items: {order_items}")  # Debug statement
                 context['order_items'] = order_items
             context['cart_order'] = cart_order
         return context
