@@ -22,5 +22,7 @@ urlpatterns = [
     path("pizza/", include("pizza.urls"), name="pizza-urls"),
     path('summernote/', include('django_summernote.urls')),
     path("accounts/", include("allauth.urls")),
-    path("", include("pizza.urls"), name="index"), 
+    path("",
+         include("pizza.urls"),
+         name="order_url"),
 ]
