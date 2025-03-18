@@ -6,7 +6,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import Pizza, Order, OrderItem
+from .models import Pizza, Order, OrderItem, ContactUs
+from .forms import ContactUsForm
 
 # Create your views here.
 
@@ -14,20 +15,24 @@ from .models import Pizza, Order, OrderItem
 class PizzaList(generic.ListView):
     queryset = Pizza.objects.filter(enabled=True)
     template_name = "pizza/order.html"
-    paginate_by = 12
+    paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
             today = timezone.now().date()
-            cart_order = Order.objects.filter(user_id=self.request.user.id, status='Cart', order_date__date=today).first()
+            cart_order = Order.objects.filter(user_id=self.request.user.id,
+                                              status='Cart',
+                                              order_date__date=today).first()
             if cart_order:
                 print(f"Cart Order: {cart_order}")  # Debug statement
-                order_items = cart_order.orderitem_set.filter(order_id__order_date__date=today)
+                order_items = cart_order.orderitem_set.filter(
+                    order_id__order_date__date=today)
                 print(f"Order Items: {order_items}")  # Debug statement
                 context['order_items'] = order_items
             context['cart_order'] = cart_order
         return context
+
 
 def index(request):
     """
@@ -108,14 +113,16 @@ def delete_pizza_order(request, id):
         )
     except OrderItem.DoesNotExist:
         messages.error(request,
-                       'This pizza is not on your order to delete, so you cannot delete it.'
+                       'This pizza is not on your order to delete,'
+                       'so you cannot delete it.'
                        )
         return HttpResponseRedirect(reverse('order_url'))
 
     if order.user_id == request.user:
         # Delete the specific OrderItem
         order_item_to_delete.delete()
-        messages.success(request, 'Your pizza has been removed from your basket successfully.')
+        messages.success(request, 'Your pizza has been removed from'
+                         'your basket successfully.')
     else:
         messages.error(request, 'You can only delete your own pizzas!')
 
@@ -134,15 +141,36 @@ def my_orders(request):
 def update_pizza_quantity(request, item_id):
     if request.method == 'POST':
         today = timezone.now().date()
-        order_item = get_object_or_404(OrderItem, id=item_id, order_id__user_id=request.user.id)
-        
+        order_item = get_object_or_404(
+            OrderItem, id=item_id, order_id__user_id=request.user.id)
+
         # Check if the order is from today
         if order_item.order_id.order_date.date() != today:
             messages.error(request, 'You can only update orders from today.')
             return HttpResponseRedirect(reverse('order_url'))
-        
+
         new_quantity = int(request.POST.get('quantity', 1))
         order_item.quantity = new_quantity
         order_item.save()
-        messages.success(request, 'The quantity has been updated successfully.')
+        messages.success(request,
+                         'The quantity has been updated successfully.')
     return HttpResponseRedirect(reverse('order_url'))
+
+
+def contact_us(request):
+    if request.method == "POST":
+        contactus_form = ContactUsForm(data=request.POST)
+        if contactus_form.is_valid():
+            contactus_form.save()
+            messages.add_message(request, messages.SUCCESS,
+                                 "Thank you for your message."
+                                 "I endeavour to respond within"
+                                 "2 working days.")
+
+    contactus_form = ContactUsForm()
+
+    return render(
+        request,
+        "pizza/contact_us.html",
+        {"contactus_form": contactus_form},
+    )

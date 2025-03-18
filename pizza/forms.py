@@ -1,5 +1,5 @@
 from django import forms
-from .models import CollaborateRequest
+from .models import ContactUs
 
 
 class ContactUsForm(forms.ModelForm):

@@ -21,4 +21,5 @@ urlpatterns = [
          views.update_pizza_quantity,
          name='update_pizza_quantity'
          ),
+    path('contact_us/', views.contact_us, name='contactus'),
 ]
