@@ -40,29 +40,25 @@
                     {% if user.is_authenticated %}
                       {% if cart_order %}
                         {% if order_items %}
-                          {% for order_item in order_items %}
-                            {% if order_item.pizza_id_id == pizza.id %}
-                              <form method="post" action="{% url 'update_pizza_quantity' order_item.id %}" class="d-flex align-items-center">
+                            <!-- If the pizza is not in the cart, show the order button -->
+                            <span class="orderbutton" style="display: block;" id="OrderButton{{pizza.id}}"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a></span>
+                            {% for order_item in order_items %}
+                              {% if order_item.pizza_id_id == pizza.id %}
+                                <!--  Hide the order button -->
+                                <script> document.getElementById("OrderButton{{pizza.id}}").style.display = "none"; </script>
+                                <!-- If the pizza is already in the cart, show the update and delete buttons -->
+                                <form method="post" action="{% url 'update_pizza_quantity' order_item.id %}" class="d-flex align-items-center">
                                 {% csrf_token %}
                                 <label for="quantity" class="me-2">Quantity:</label>
                                 <input type="number" id="quantity" name="quantity" value="{{ order_item.quantity }}" min="1" class="form-control me-2" style="width: 60px;">
-                                <button type="submit" class="btn btn-secondary btn-custom-width">Update</button>
-                              </form>
-                            {% endif %}
-                          {% endfor %}
-                        {% endif %}
-                      {% endif %}
-                    {% else %}
-                    {% endif %} 
-                    {% if user.is_authenticated %}
-                      <a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a>
-                      {% if cart_order %}
-                        {% if order_items %}
-                          {% for order_item in order_items %}
-                            {% if order_item.pizza_id_id == pizza.id %}
-                              <a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger btn-custom-width">Delete</a>
-                            {% endif %}
-                          {% endfor %}
+                                <span class="editdeletebutton"><button type="submit" class="btn btn-secondary btn-custom-width">Update</button>
+                                </form><a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger btn-custom-width">Delete</a>
+                                </span> 
+                              {% endif %}
+                            {% endfor %}   
+                        {% else %}
+                        <!-- If there are no orders, create initial buttons -->
+                        <span class="orderbutton"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a></span>
                         {% endif %}
                       {% endif %}
                     {% endif %}        

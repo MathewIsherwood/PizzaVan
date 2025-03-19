@@ -60,14 +60,16 @@ def order_pizza(request, id):
 
     if existing_order:
         # If an order exists, check if the pizza is already in the order
-        order_item = existing_order.orderitem_set.filter(pizza_id=pizza).first()
+        order_item = existing_order.orderitem_set.filter(
+            pizza_id=pizza).first()
         if order_item:
             # Increment the quantity if the pizza is already in the order
             order_item.quantity += 1
             order_item.save()
             messages.success(
                 request,
-                'The quantity of the pizza in your order has been updated successfully.'
+                'The quantity of the pizza in your order '
+                'has been updated successfully.'
             )
         else:
             # Add the pizza to the existing order
@@ -122,7 +124,7 @@ def delete_pizza_order(request, id):
         )
     except OrderItem.DoesNotExist:
         messages.error(request,
-                       'This pizza is not on your order to delete,'
+                       'This pizza is not on your order to delete, '
                        'so you cannot delete it.'
                        )
         return HttpResponseRedirect(reverse('order_url'))
@@ -130,7 +132,7 @@ def delete_pizza_order(request, id):
     if order.user_id == request.user:
         # Delete the specific OrderItem
         order_item_to_delete.delete()
-        messages.success(request, 'Your pizza has been removed from'
+        messages.success(request, 'Your pizza has been removed from '
                          'your basket successfully.')
     else:
         messages.error(request, 'You can only delete your own pizzas!')
@@ -172,8 +174,8 @@ def contact_us(request):
         if contactus_form.is_valid():
             contactus_form.save()
             messages.add_message(request, messages.SUCCESS,
-                                 "Thank you for your message."
-                                 "I endeavour to respond within"
+                                 "Thank you for your message. "
+                                 "I endeavour to respond within "
                                  "2 working days.")
 
     contactus_form = ContactUsForm()
