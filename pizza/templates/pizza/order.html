@@ -16,7 +16,7 @@
         <div class="row">
           <!-- Pizza's Available -->
           {% if not user.is_authenticated %}
-          <p class="text-center">Please <a href="{% url 'account_login' %}">login</a> to order pizza, or <a href="{% url 'account_signup' %}">Register</a> if you are new here!</p>
+          <p class="text-center please-login">Please <a href="{% url 'account_login' %}">login</a> to order pizza, or <a href="{% url 'account_signup' %}">Register</a> if you are new here!</p>
           {% endif %}
           <div class="col-12 mt-3 left">
             <div class="row">
@@ -33,7 +33,7 @@
                       <div class="image-flash">
                         <p class="Pizza">Pizza: {{ pizza.name }}</p>
                         <p class="Size">Size: {{ pizza.size }}</p>
-                        <p class="Price">Price: {{ pizza.price }}</p>
+                        <p class="Price">Price: £{{ pizza.price }}</p>
                       </div>
                     </div>                       
                     <p class="card-text">{{ pizza.description }}</p>

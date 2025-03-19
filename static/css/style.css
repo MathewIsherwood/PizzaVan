@@ -105,19 +105,40 @@ body {
 
 .title{
     color: #fff;
-    font-size: 1.5em;
+    font-size: 3.5em;
     font-weight: bold;
 }
 
 .image-flash {
     position: absolute;
+    padding-top: 15px;
     bottom: 5%;
     left: -2px;
-    min-width: 30%;
+    min-width: 50%;
     background-color: #fff;
     border-color: #798539;
     color: #798539;
     font-weight: bold;
+    font-size: 1.2em;
+    border: 5px 5px 5px 0;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+    line-height: 0.75;
+}
+
+.please-login{
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.please-login a{
+    color: #ad8875;
+}
+
+.please-login a:hover{
+    color: #798539;
 }
 
 /* .image-flash {
@@ -144,11 +165,6 @@ body {
 
 /* Buttons */
 
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
-}
-
 .btn-delete {
     color: #fff;
     background: #E84610;
@@ -158,15 +174,21 @@ body {
     width: 100px; 
 }
 
-.btn-signup,
-.btn-edit {
-    background-color: #f00;
-    color: #f00;
+.btn-signup{
+    background-color: #856404;
+    color: #100000;
 }
 
-.btn-signup:hover,
+.btn-delete,
+.btn-signup:hover{
+    background-color: #798539;
+    color: #100000;
+
+}
+
+.btn-delete,
 .btn-signup:active {
-    background-color: #00f;
+    background-color: #ad8875;
     color: #23BBBB;
 }
 
@@ -205,5 +227,56 @@ body {
 .alert-info {
     color: #0c5460;
     background-color: #d1ecf1;
-    border-color: #bee5eb;
+}
+    
+/* Login Page & Register Page*/
+
+.register-title, .logout-title,
+.login-title{
+    color: #fff;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.register-text, .logout-text,
+.login-text{
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.register-form,
+.login-form{
+    color: #fff !important;
+}
+
+.helptext{
+    color: #fff;
+}
+
+/* Signup */
+
+.login{
+    color: #ad8875 !important;
+}
+
+.login label{
+    color: #fff!important;
+}
+
+.login:hover {
+    color: #798539 !important;
+}
+
+.logout{
+    color: #fff;
+}
+
+.logout-center{
+    text-align: center;
 }

@@ -8,17 +8,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-      <h3>{% trans "Sign Up" %}</h3>
-
-      <p>{% blocktrans %}
-        Welcome back to the code|star blog.
-        Do you already have an account? Then please
-        <a class="link" href="{{ login_url }}">sign in</a>
-        instead.
+      <h3 class="register-title">{% trans "Sign Up" %}</h3>
+      <p class="register-text">{% blocktrans %}
+        Welcome to the PizzaMe! Do you already have an account? Then please <a class="login" href="{{ login_url }}">sign in</a> instead.
       {% endblocktrans %}</p>
     </div>
   </div>
-  <div class="row">
+  <div class="row register-form">
     <div class="col-md-8 mt-3 offset-md-2">
       <form class="signup" id="signup_form" method="post"
         action="{% url 'account_signup' %}">
