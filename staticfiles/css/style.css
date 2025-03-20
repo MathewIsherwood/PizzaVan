@@ -38,6 +38,7 @@
 
 body {
     background-color: #f20929;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .main-bg {
@@ -50,10 +51,8 @@ body {
     text-transform: uppercase;
 }
 
-.body-content{
-}
-
-.container-fluid {
+.card-header{
+    text-align:center;
 }
 
 .card {
@@ -64,15 +63,50 @@ body {
 }
 
 .card-body{
-    
     width: 400px;
     height: 550px;
+}
 
+.my-orders-card-body{
+    padding-left: 4vw;
+    padding-bottom: 20px;
+}
+
+.my-orders-title{
+    padding-top: 1.2vh;
+}
+
+.card-topic{
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .card-img-top {
     border-top-left-radius: 90px;
     border-top-right-radius: 90px;
+}
+
+.card-text{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #100000;
+    text-align: center;
+}
+
+.orderbutton{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.editdeletebutton{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.me-2{
+    border-left: 5px;
 }
 
 .image-container {
@@ -81,29 +115,41 @@ body {
 
 .title{
     color: #fff;
-    font-size: 1.5em;
+    font-size: 3.5em;
     font-weight: bold;
 }
 
 .image-flash {
     position: absolute;
+    padding-top: 15px;
     bottom: 5%;
     left: -2px;
-    min-width: 30%;
+    min-width: 50%;
     background-color: #fff;
     border-color: #798539;
     color: #798539;
     font-weight: bold;
+    font-size: 1.2em;
+    border: 5px 5px 5px 0;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+    line-height: 0.75;
 }
 
-/* .image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #fff;
-    border-color: #798539;
-} */
+.please-login{
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.please-login a{
+    color: #ad8875;
+}
+
+.please-login a:hover{
+    color: #798539;
+}
 
 /* Links */
 
@@ -120,11 +166,6 @@ body {
 
 /* Buttons */
 
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
-}
-
 .btn-delete {
     color: #fff;
     background: #E84610;
@@ -134,15 +175,21 @@ body {
     width: 100px; 
 }
 
-.btn-signup,
-.btn-edit {
-    background-color: #f00;
-    color: #f00;
+.btn-signup{
+    background-color: #856404;
+    color: #100000;
 }
 
-.btn-signup:hover,
+.btn-delete,
+.btn-signup:hover{
+    background-color: #798539;
+    color: #100000;
+
+}
+
+.btn-delete,
 .btn-signup:active {
-    background-color: #00f;
+    background-color: #ad8875;
     color: #23BBBB;
 }
 
@@ -151,8 +198,13 @@ body {
 .alert {
     padding: 15px;
     margin-bottom: 20px;
-    border: 1px solid transparent;
+    border: 1px solid #000;
+    background-color: #856404;
+    color: #010000;
+    border-width: 2px;
     border-radius: 4px;
+    position: relative;
+    top: 10px;
 }
 
 .alert-success {
@@ -176,5 +228,56 @@ body {
 .alert-info {
     color: #0c5460;
     background-color: #d1ecf1;
-    border-color: #bee5eb;
+}
+    
+/* Login Page & Register Page*/
+
+.register-title, .logout-title,
+.login-title{
+    color: #fff;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.register-text, .logout-text,
+.login-text{
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.register-form,
+.login-form{
+    color: #fff !important;
+}
+
+.helptext{
+    color: #fff;
+}
+
+/* Signup */
+
+.login{
+    color: #ad8875 !important;
+}
+
+.login label{
+    color: #fff!important;
+}
+
+.login:hover {
+    color: #798539 !important;
+}
+
+.logout{
+    color: #fff;
+}
+
+.logout-center{
+    text-align: center;
 }
