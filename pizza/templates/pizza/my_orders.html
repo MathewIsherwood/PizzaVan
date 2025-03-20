@@ -3,22 +3,22 @@
 {% block title %}My Orders{% endblock title %}
 {% block content %}
 <div class="container mt-5">
-    <h2>My Orders</h2>
+    <h1 class="text-center title">My Orders</h1>
     {% if orders %}
         {% for order in orders %}
             <div class="card mb-3">
                 <div class="card-header">
-                    <h5>Order ID: {{ order.id }}</h5>
-                    <p>Status: {{ order.status }}</p>
-                    <p>Total Price: £{{ order.total_price }}</p>
-                    <p>Order Date: {{ order.order_date }}</p>
+                    <p><span class="card-topic">Order ID:</span> {{ order.id }}</p>
+                    <p><span class="card-topic">Status:</span> {{ order.status }}</p>
+                    <p><span class="card-topic">Total Price:</span> £{{ order.total_price }}</p>
+                    <p><span class="card-topic">Order Date:</span> {{ order.order_date }}</p>
                     {% if order.forward_order %}
-                        <p>Forward Order: {{ order.forward_order|yesno:"Yes,No" }}</p>
-                        <p>Forward Order Time: {{ order.forward_order_time }}</p>
+                        <p><span class="card-topic">Forward Order:</span> {{ order.forward_order|yesno:"Yes,No" }}</p>
+                        <p><span class="card-topic">Forward Order Time:</span> {{ order.forward_order_time }}</p>
                     {% endif %}
                 </div>
-                <div class="card-body">
-                    <h6>Pizzas in this order:</h6>
+                <h2 class="text-center my-orders-title">Pizzas in this order:</h2>
+                <div class="my-orders-card-body">                    
                     <ul>
                         {% for item in order.orderitem_set.all %}
                             <li>
@@ -31,7 +31,7 @@
             </div>
         {% endfor %}
     {% else %}
-        <p>You have no orders.</p>
+        <h1>You have no orders.</h1>
     {% endif %}
 </div>
 {% endblock content %}

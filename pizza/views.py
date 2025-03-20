@@ -153,18 +153,34 @@ def update_pizza_quantity(request, item_id):
     if request.method == 'POST':
         today = timezone.now().date()
         order_item = get_object_or_404(
-            OrderItem, id=item_id, order_id__user_id=request.user.id)
+            OrderItem, id=item_id, order_id__user_id=request.user.id
+        )
 
         # Check if the order is from today
         if order_item.order_id.order_date.date() != today:
             messages.error(request, 'You can only update orders from today.')
             return HttpResponseRedirect(reverse('order_url'))
 
-        new_quantity = int(request.POST.get('quantity', 1))
+        # Get the new quantity from the form
+        quantity_input = request.POST.get(
+            'quantity', '').strip()  # Get and strip the input
+        if not quantity_input.isdigit() or int(quantity_input) <= 0:
+            # Handle invalid or empty input
+            messages.error(
+                request,
+                'Please enter a valid quantity greater than 0.'
+                )
+            return HttpResponseRedirect(reverse('order_url'))
+
+        # Update the quantity if valid
+        new_quantity = int(quantity_input)
         order_item.quantity = new_quantity
         order_item.save()
-        messages.success(request,
-                         'The quantity has been updated successfully.')
+        messages.success(
+            request,
+            'The quantity has been updated successfully.'
+            )
+
     return HttpResponseRedirect(reverse('order_url'))
 
 

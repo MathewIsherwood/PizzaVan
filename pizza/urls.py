@@ -13,11 +13,10 @@ urlpatterns = [
     path("delete_order/<int:id>/",
          views.delete_pizza_order,
          name='delete_pizza_order'),
-    path("update_pizza_quantity/<int:item_id>/", 
+    path("update_pizza_quantity/<int:item_id>/",
          views.update_pizza_quantity,
          name='update_pizza_quantity'),
     path('contact_us/',
          views.contact_us,
          name='contactus'),
-     path("accounts/", include("allauth.urls"))
-]
+     path("accounts/", include("allauth.urls"))]

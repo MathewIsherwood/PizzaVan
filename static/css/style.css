@@ -51,10 +51,8 @@ body {
     text-transform: uppercase;
 }
 
-.body-content{
-}
-
-.container-fluid {
+.card-header{
+    text-align:center;
 }
 
 .card {
@@ -65,10 +63,22 @@ body {
 }
 
 .card-body{
-    
     width: 400px;
     height: 550px;
+}
 
+.my-orders-card-body{
+    padding-left: 4vw;
+    padding-bottom: 20px;
+}
+
+.my-orders-title{
+    padding-top: 1.2vh;
+}
+
+.card-topic{
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .card-img-top {
@@ -140,15 +150,6 @@ body {
 .please-login a:hover{
     color: #798539;
 }
-
-/* .image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #fff;
-    border-color: #798539;
-} */
 
 /* Links */
 

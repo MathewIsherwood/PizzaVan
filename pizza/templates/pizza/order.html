@@ -60,6 +60,9 @@
                         <!-- If there are no orders, create initial buttons -->
                         <span class="orderbutton"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a></span>
                         {% endif %}
+                      {% else %}
+                      <!-- If there is no cart, create initial buttons -->
+                      <span class="orderbutton"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a></span>  
                       {% endif %}
                     {% endif %}        
                   </div>
