@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
 from .models import Pizza, Order, OrderItem, Payment
 from django import forms
 
@@ -68,6 +67,7 @@ class PaymentAdminForm(forms.ModelForm):
                 ('Failed', 'Failed'),
             ]),
         }
+
 
 @admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):

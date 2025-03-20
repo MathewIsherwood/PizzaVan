@@ -19,4 +19,4 @@ urlpatterns = [
     path('contact_us/',
          views.contact_us,
          name='contactus'),
-     path("accounts/", include("allauth.urls"))]
+    path("accounts/", include("allauth.urls"))]
