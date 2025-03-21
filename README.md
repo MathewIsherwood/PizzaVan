@@ -1,9 +1,8 @@
 # PizzaVan
-#### Image of site here
+![Pizza Me - All Devices](all-devices-black.png)
 
-Live site: <a href="heroku" target="_blank">PizzaMe</a>.
-For **Admin access** with relevant sign-in information, click <a href="herokuapp" target="_blank">here</a>.
-Github repository, click <a href="https://github.com/MathewIsherwood/PizzaVan" target="_blank">here</a>.
+Live site: <a href="https://pizzame-c9ad4b305843.herokuapp.com/" target="_blank">PizzaMe!</a>.
+For **Admin access** with relevant sign-in information (User: Django. Pass: Unchained), click <a href="https://pizzame-c9ad4b305843.herokuapp.com/admin/" target="_blank">here</a>. Github repository, click <a href="https://github.com/MathewIsherwood/PizzaVan" target="_blank">here</a>.
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -26,16 +25,14 @@ Github repository, click <a href="https://github.com/MathewIsherwood/PizzaVan" t
 8. [Database Schema - Entity Relationship Diagram](#database-schema---entity-relationship-diagram)
 9. [Security](#security)
 10. [Features](#features)
-    - [User View - Registered/Unregistered](#user-view---registeredunregistered)
-    - [Role-Based Dashboard Features](#role-based-dashboard-features)
-    - [Role-Based Navigation](#role-based-navigation)
-    - [Soft Delete/Archiving for Patient Accounts](#soft-deletearchiving-for-patient-accounts)
-    - [Order System](#order-system)
-    - [Messaging System](#messaging-system)
-    - [Profile Management](#profile-management)
-    - [Confirmation Messages](#confirmation-messages)
-    - [CRUD Functionality](#crud-functionality)
-    - [Feature Showcase](#feature-showcase)
+    - [User View - Unregistered](#user-view---unregistered)
+    - [User View - Registered](#user-view---registered)
+    - [Order System & CRUD Functionality](#order-system--crud-functionality)
+        - [Create](#create)
+        - [Read](#read)
+        - [Update](#update)
+        - [Delete](#delete)
+    - [Confirmation / Notification Messages](#confirmation--notification-messages)
 11. [Future Features](#future-features)
 12. [Technologies & Languages Used](#technologies--languages-used)
 13. [Libraries & Frameworks](#libraries--frameworks)
@@ -547,4 +544,84 @@ Ref: orderItem.Pizza_ID > pizza.ID
 Ref: payment.Order_ID - order.ID
 ~~~
 
+## Security
+All data is securely handled with Django’s security features, including:
+- CSRF protection for form submissions.
+- Data encryption for sensitive information like passwords using Django's built-in authentication.
+- Role-based access control to restrict sensitive data to authorized users.
 
+Role-based access control (RBAC) is implemented using Django's Group and Permission systems. Patients, specialists, and admins are grouped based on their role, and their access to features and sensitive information is restricted accordingly. Patients can only access their own medical data and booking history, while specialists can only view data related to their consultations. Admins have the broadest access for system management.
+
+### Pizza Booking System
+
+### Confirmation Messages
+- **User Feedback**: Confirmation messages are shown to users when important actions are performed, such as logging in, booking a pizza, editing a pizza or deleting a pizza. These messages help ensure a smooth user experience by providing feedback on successful actions.
+
+### CRUD Functionality
+- The user can implement `C U and D` on the `order` pizza page and `R` is implemented on the `my orders` page.
+
+## Features
+
+- ### User View - Unregistered
+
+![Logged Out Order Page](planning_files/LoggedOutOrderPage.jpg)
+![Logged Out Sign Up Page](planning_files/LoggedOutSignUp.jpg)
+![Logged Out Sign In Page](planning_files/LoggedOutSignIn.jpg)
+
+- ### User View - Registered
+![Logged In Order Page With Items](planning_files/LoggedInOrderPageItems.jpg)
+![Logged In Order Page Without Items](planning_files/LoggedInOrderPageNoItems.jpg)
+![Logged In Sign Out Page](planning_files/LoggedInSignOutPage.jpg)
+
+- ### Order System & CRUD Functionality
+- #### Create 
+![CRUD - Create](planning_files/CRUD-Create.jpg)
+- #### Read
+![CRUD - Read](planning_files/CRUD-Read.jpg)
+- #### Update
+![CRUD - Update](planning_files/CRUD-Update.jpg)
+- #### Delete
+![CRUD - Delete](planning_files/CRUD-Delete.jpg)
+
+- ### Confirmation / Notification Messages
+![Confirmation - Order Creation](planning_files/Notification-OrderCreation.jpg)
+![](planning_files/Notification-UpdateOrder.jpg)
+![alt text](planning_files/Notification-DeleteOrder.jpg)
+
+
+## Future Features
+I plan to implement the following in future iterations:
+- Push notifications for upcoming site visits near my location.
+- Integrate payment system for online order payments.
+- Integrate a payment system for the Pizza's
+- Give the admin and customer more functionality such as being able to review a Pizza
+
+## Technologies & Languages Used
+- HTML5 - Markup language for structuring the website
+- CSS3 - Styling language for designing the layout and visual aesthetics
+- JavaScript - For interactivity and DOM manipulation on the frontend
+- Python (Django) - Backend web framework for server-side logic and management
+- PostgreSQL - Database management system for storing data
+- Cloudinary - Cloud-based image storage solution
+- Whitenoise - For serving static files directly from Django
+- Heroku - For online hosting of website
+
+## Libraries & Frameworks
+- **Django** - Backend framework
+- **Django Crispy Forms** - For elegant form rendering
+- **Cloudinary** - Media storage
+- **Whitenoise** - For serving static files
+
+## Tools & Programs
+- **GitHub Projects** - Project management and tracking
+- **Heroku** - Deployment and hosting
+- **Balsamiq** - Wireframes and design prototypes
+
+## **Testing**
+
+### **Validation Testing**
+
+All code has been validated through:
+- **HTML**: [W3C Markup Validator](https://validator.w3.org/).
+- **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+- **Python**: PEP8 validation to ensure code quality.
