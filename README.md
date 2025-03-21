@@ -373,31 +373,20 @@ I used an agile approach to project management. The PizzaMe development process 
 ## User Stories
 ### Guest User Stories (Users Without an Account)
 
-- As a guest, I want to `browse the pizzas`, so I can see what pizzas are available. - Done
-- As a guest, I want to `see the truck’s location`, so I can find out where to get a pizza. - Done
+- As a guest, I want to `browse the pizzas`, so I can see what pizzas are available.
 - As a guest, I want to `sign up` easily, so I can place an order without hassle.
-- As a guest, I want to see `special pizzas`, so I can try something new.
-- As a guest, I want to see `other customer reviews`, so I can decide which pizza to try next.
 
 ### Customer User Stories (Users logged in)
 
-- As a customer, I want to see `special pizzas`, so I can try something new.- Done
-- As a customer, I want to `see the truck’s location`, so I can find out where to get a pizza.
-- As a customer, I want to see the `truck’s schedule`, so I know when and where I can pick up my order.
-- As a customer, I want to see an `estimated pickup time`, so I know when my pizza will be ready.
-- As a customer, I want to schedule an order in advance, so I can pick it up at my `preferred time`.
-- As a customer, I want to order `multiple pizzas` at once, so I can buy food for my family or group. - Done
+- As a customer, I want to order `multiple pizzas` at once, so I can buy food for my family or group.
 - As a customer, I want to receive an `order confirmation`, so I know my order was successfully placed.
-- As a customer, I want to see `other customer reviews`, so I can decide which pizza to try next.
-- As a customer, I want to `leave a review` after my order, so I can share my experience.
+- As a customer, I want to `order a single pizza`, just for me.
+- As a customer, I want to be able to `edit my order`, got to be able to change my mind!
+- As a customer, I want to be able to `delete my order`, changed my mind!
 
 ## Admin (Business Owner) User Stories
-- As an admin, I want to `feature special pizzas`, so customers can see what’s new.
-- As a admin, I want to `set the truck’s location`.
-- As an admin I want to `set weekly schedules`, so customers can plan their visits.
 - As an admin, I want to `view and manage incoming orders`, so I can prepare them efficiently.
-- As an admin, I want to update `order status` and `estimated pickup time`, so customers know when their pizza is ready.
-- As an admin, I want to `view & approve customer reviews`, so I can improve my service.
+- As an admin, I want to update `order status` so customers know when their pizza is ready.
 
 ## Flow Diagram
 ![User Flow Diagram](planning_files/UserFlowDiagram.jpg)
@@ -449,50 +438,55 @@ Wireframes were created for the following key pages to ensure an intuitive user 
     <img src="planning_files/Wireframe-LoginLogout.jpg"> 
 </details>
 <br />
-Wireframes were designed using [Balsamiq](https://balsamiq.com/), ensuring responsiveness across devices.
+Wireframes were designed using [Balsamiq](https://balsamiq.com/), ensuring responsiveness across devices. Wireframes include all MoSCoW Prioritization levels.
 
-## Database Schema - Entity Relationship Diagram
+## database schema - entity relationship diagram
 
-- User (Customers & Admins)
+- user (customers & admins)
 
-> - ID (PK) (Integer)
-> - Name (varchar(100))
-> - Email (varachar(100))
-> - Password (varchar(20))
-> - Phone (Integer)
-> - Role (Customer/Admin) (varchar(10))
+> - id (autofield): [primary key]
+> - username (charfield)
+> - first_name (charfield)
+> - last_name (charfield)
+> - email (emailfield)
+> - password (charfield)
+> - is_staff (booleanfield)
+> - is_active (booleanfield)
+> - date_joined (datetimefield)
 
-- Order
+- order
 
-> - ID (PK) (Integer)
-> - User_ID (FK → User) (Integer)
-> - Order_date (timestamp)
-> - Status (varchar(9)) - Example (Pending, Preparing, Delivered, Cancelled)
-> - Total_price (Float)
-> - Forward_order (boolean)
-> - Forward_order_time (timestamp)
+> - id (pk) (integer)
+> - user_id (fk → user) (integer)
+> - order_date (timestamp)
+> - status (varchar(9)) - example (Pending, Preparing, Delivered, Cancelled)
+> - total_price (float)
+> - forward_order (boolean)
+> - forward_order_time (timestamp)
 
-- Pizza
+- pizza
 
-> - ID (PK)(Integer)
-> - Name (varchar(100))
-> - Size (varchar(6)) - Example (Small, Medium, Large)
-> - Price (Float)
-> - Description (varchar(100))
+> - id (pk)(integer)
+> - name (varchar(100))
+> - size (varchar(6)) - example (Small, Medium, Large)
+> - price (float)
+> - description (varchar(100))
+> - featured_image (varchar(100))
+> - enabled (boolean)
 
-OrderItem (Many-to-Many between Order & Pizza)
+orderitem (many-to-many between order & pizza)
 
-> - ID (PK) (Integer)
-> - Order_ID (FK → Order) (Integer)
-> - Pizza_ID (FK → Pizza) (Integer)
-> - Quantity (Integer)
+> - id (pk) (integer)
+> - order_id (fk → order) (integer)
+> - pizza_id (fk → pizza) (integer)
+> - quantity (integer)
 
-- Payment
+- payment
 
-> - ID (PK) (Integer)
-> - Order_ID (FK → Order) (Integer)
-> - Payment_method (varchar(12)) - Example (Credit Card, PayPal, Cash)
-> - Payment_status (varchar(8)) - Example (Paid, Pending, Failed)
+> - id (pk) (integer)
+> - order_id (fk → order) (integer)
+> - payment_method (varchar(12)) - example (Credit Card, Paypal, Cash)
+> - payment_status (varchar(8)) - example (Paid, Pending, Failed)
 
 ![Initial ERD](<planning_files/Initial-ERD.jpg>)
 
@@ -529,6 +523,8 @@ Name varchar(100)
 Size varchar(6) [note: 'Small, Medium, Large']
 Price Float
 Description varchar(100)
+featured_image varchar(100)
+enabled boolean
 }
 
 Table orderItem {
