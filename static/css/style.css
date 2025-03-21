@@ -205,7 +205,7 @@ body {
     
 /* Login Page & Register Page*/
 
-.register-title, .logout-title,
+.register-title, .logout-title, .password-reset-title,
 .login-title{
     color: #fff;
     font-size: 3.5em;
@@ -215,7 +215,7 @@ body {
     padding-bottom: 20px;
 }
 
-.register-text, .logout-text,
+.register-text, .logout-text, .password-reset-text,
 .login-text{
     color: #fff;
     font-size: 1em;
@@ -224,7 +224,7 @@ body {
     padding-bottom: 20px;
 }
 
-.register-form,
+.register-form, .password-reset-form,
 .login-form{
     color: #fff !important;
 }
