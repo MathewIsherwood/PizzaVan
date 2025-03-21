@@ -47,7 +47,7 @@
                                 <!--  Hide the order button -->
                                 <script> document.getElementById("OrderButton{{pizza.id}}").style.display = "none"; </script>
                                 <!-- If the pizza is already in the cart, show the update and delete buttons -->
-                                <form method="post" action="{% url 'update_pizza_quantity' order_item.id %}" class="d-flex align-items-center">
+                                <form method="post" action="{% url 'update_pizza_quantity' order_item.id %}" class="d-block">
                                 {% csrf_token %}
                                 <span class="updatebutton"><label for="quantity{{pizza.id}}" class="me-2">Quantity:</label>
                                 <input type="number" id="quantity{{pizza.id}}" name="quantity" value="{{ order_item.quantity }}" min="1" class="form-control me-2" style="width: 60px;">

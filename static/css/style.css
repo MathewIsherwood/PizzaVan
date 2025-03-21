@@ -1,5 +1,9 @@
 /* Navbar */
 
+.navbar-text a {
+    color: #f20939;
+}
+
 .navbar-text-left {
     flex: 1;
     text-align: left;
@@ -272,11 +276,6 @@ body {
         background-color: #fff;
     }
     
-    .card-body{
-        width: 80vw;
-        height: 45vh;
-    }
-
     .card-img-top {
         border-top-left-radius: 90px;
         border-top-right-radius: 90px;
@@ -326,11 +325,6 @@ body {
         background-color: #fff;
     }
     
-    .card-body{
-        width: 80vw;
-        height: 45vh;
-    }
-
     .card-img-top {
         border-top-left-radius: 90px;
         border-top-right-radius: 90px;
@@ -381,11 +375,6 @@ body {
         background-color: #fff;
     }
     
-    .card-body{
-        width: 80vw;
-        height: 45vh;
-    }
-
     .card-img-top {
         border-top-left-radius: 90px;
         border-top-right-radius: 90px;
@@ -419,7 +408,6 @@ body {
     .updatebutton {
         flex-direction: column; /* Stack elements vertically */
         align-items: center; /* Align items to the center */
-        padding-left: 4vw;
     }
 
     .updatebutton button {
@@ -437,11 +425,6 @@ body {
         background-color: #fff;
     }
     
-    .card-body{
-        width: 50vw;
-        height: 50vh;
-    }
-
     .card-img-top {
         border-top-left-radius: 90px;
         border-top-right-radius: 90px;
@@ -475,7 +458,6 @@ body {
     .updatebutton {
         flex-direction: column; /* Stack elements vertically */
         align-items: center; /* Align items to the center */
-        padding-left: 4vw;
     }
 
     .updatebutton button {
@@ -493,12 +475,7 @@ body {
         background-color: #fff;
     }
     
-    .card-body{
-        width: 80vw;
-        height: 45vh;
-    }
-
-    .card-img-top {
+     .card-img-top {
         border-top-left-radius: 90px;
         border-top-right-radius: 90px;
         max-width: 100%;
@@ -531,7 +508,6 @@ body {
     .updatebutton {
         flex-direction: column; /* Stack elements vertically */
         align-items: center; /* Align items to the center */
-        padding-left: 4vw;
     }
 
     .updatebutton button {
@@ -549,11 +525,6 @@ body {
         background-color: #fff;
     }
     
-    .card-body{
-        width: 400px;
-        height: 570px;
-    }
-
     .card-img-top {
         border-top-left-radius: 90px;
         border-top-right-radius: 90px;
@@ -587,7 +558,11 @@ body {
         display: flex;
         align-items: center;
         gap: 10px; 
-        padding-left: 3vw; 
         margin-bottom: 10px;
+        padding-left: 1.5vw;
+    }
+
+    .card-body{
+        height:550px;
     }
 }

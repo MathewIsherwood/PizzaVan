@@ -1,10 +1,11 @@
 {% load static %}
 {% load tz %}
 
-{% url 'order' as order_url %}
+{% url 'order_url' as order_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'my_orders' as my_orders %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -52,7 +53,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-text-left navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if order_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'order_url' %}">Order Pizza</a>
+                        <a class="nav-link {% if request.path == order_url %}active" aria-current="page{% endif %}" href="{% url 'order_url' %}">Order Pizza</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
