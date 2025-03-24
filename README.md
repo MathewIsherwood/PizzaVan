@@ -636,6 +636,7 @@ All code has been validated through:
 - **HTML**: [W3C Markup Validator](https://validator.w3.org/).
 - **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
 - **Python**: PEP8 validation to ensure code quality.
+- **Lighthouse**: 
 
 ## Deployment
 
@@ -711,7 +712,7 @@ AI tools were employed to identify and resolve bugs efficiently. By analyzing er
 AI-driven suggestions were used to enhance code performance and improve user experience. This included optimizing database queries, and refining UI/UX elements. The AI recommendations were evaluated and implemented selectively to ensure they aligned with project goals. This helped me not stray too far in the `views.py` and focus on bringing over only the neccesarry data. This was especially helpful in `order_pizza` when the if statements started to build up.
 
 ### Use AI Tools to Create Automated Unit Tests
-GitHub Copilot was leveraged to generate Django unit tests for key application features. These tests ensured adequate code coverage and validated the functionality of critical components. The generated tests were reviewed and modified as needed to improve accuracy and completeness.
+GitHub Copilot was leveraged to generate Django unit tests for key application features in `tests.py`. These tests ensured adequate code coverage and validated the functionality of critical components. The generated tests were reviewed and modified as needed to improve accuracy and completeness.
 
 ### Reflect on AI’s Role in the Development Process and Its Impact on Workflow
 AI tools significantly enhanced the development workflow by increasing efficiency and reducing repetitive tasks. They provided valuable detailed insights during debugging, optimized performance by removing the unneccsary, and facilitated the creation of robust unit tests `tests.py`. The integration of AI tools allowed me to focus on higher-level problem-solving and innovation, ultimately improving the overall quality of the project. Despite not getting as much finished as I wanted, this was my fault being new at `Django` rather than my use of AI on the project.
