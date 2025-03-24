@@ -14,7 +14,7 @@ os.environ.setdefault(
 os.environ.setdefault('DEBUG', 'FALSE')
 os.environ.setdefault(
     "CLOUDINARY_URL",
-    "cloudinary://664772432717391:wFr5MDgP0LcWBlAwByaSDjsLAMw@dsnl1wuvh"
+    "cloudinary://664772432717391:wFr5MDgP0LcWBlAwByaSDjsLAMw@dsnl1wuvh?secure=true"
 )
 
 # Cloudinary configuration
