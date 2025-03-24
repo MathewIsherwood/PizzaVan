@@ -62,17 +62,17 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if signup_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'account_signup' aria-label="Register"%}">Register</a>
+                        <a class="nav-link {% if signup_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'account_signup'%}" aria-label="Register">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if login_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'account_login' aria-label="Login"%}">Login</a>
+                        <a class="nav-link {% if login_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'account_login'%}" aria-label="Login">Login</a>
                     </li>
                     {% endif %}
                 </ul>
                 <span class="navbar-text text-muted">
                     {% if user.is_authenticated %}
                         <span>You are logged in as {{ user }}.</span>
-                        <a class="nav-link d-inline {% if logout_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'account_logout' aria-label="Logout"%}">Logout</a>
+                        <a class="nav-link d-inline {% if logout_url in request.path %}active" aria-current="page{% endif %}" href="{% url 'account_logout'%}" aria-label="Logout">Logout</a>
                     {% endif %}
                 </span>
             </div>
