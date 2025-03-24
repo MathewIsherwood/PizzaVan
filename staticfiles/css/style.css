@@ -1,14 +1,8 @@
-* {
-    a{
-        text-decoration: none;
-    }
-
-    a:active{
-        text-decoration: underline;
-    }
-}
-
 /* Navbar */
+
+.navbar-text a {
+    color: #f20939;
+}
 
 .navbar-text-left {
     flex: 1;
@@ -30,8 +24,12 @@
 
 .active{
     font-weight: bold;
-    color: #d2913f;
+    color: #d2913f !important;
     
+}
+
+.navbar-nav .nav-link.active {
+    color: #d2913f;
 }
 
 /* Body */
@@ -55,18 +53,6 @@ body {
     text-align:center;
 }
 
-.card {
-    border: none;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 100px;
-    background-color: #fff;
-}
-
-.card-body{
-    width: 400px;
-    height: 550px;
-}
-
 .my-orders-card-body{
     padding-left: 4vw;
     padding-bottom: 20px;
@@ -79,11 +65,6 @@ body {
 .card-topic{
     font-size: 1.2em;
     font-weight: bold;
-}
-
-.card-img-top {
-    border-top-left-radius: 90px;
-    border-top-right-radius: 90px;
 }
 
 .card-text{
@@ -99,11 +80,26 @@ body {
     text-align: center;
 }
 
-.editdeletebutton{
-    display: block;
-    margin: 0 auto;
-    text-align: center;
+/*.updatebutton{
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    padding-left: 3vw; 
+    margin-bottom: 10px;
 }
+*/
+
+.updatebutton {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds spacing between elements */
+}
+
+.deletebutton{
+    display: flex;
+    justify-content: center;
+}
+
 
 .me-2{
     border-left: 5px;
@@ -111,29 +107,6 @@ body {
 
 .image-container {
     position: relative;
-}
-
-.title{
-    color: #fff;
-    font-size: 3.5em;
-    font-weight: bold;
-}
-
-.image-flash {
-    position: absolute;
-    padding-top: 15px;
-    bottom: 5%;
-    left: -2px;
-    min-width: 50%;
-    background-color: #fff;
-    border-color: #798539;
-    color: #798539;
-    font-weight: bold;
-    font-size: 1.2em;
-    border: 5px 5px 5px 0;
-    border-top-right-radius: 90px;
-    border-bottom-right-radius: 90px;
-    line-height: 0.75;
 }
 
 .please-login{
@@ -232,7 +205,7 @@ body {
     
 /* Login Page & Register Page*/
 
-.register-title, .logout-title,
+.register-title, .logout-title, .password-reset-title,
 .login-title{
     color: #fff;
     font-size: 3.5em;
@@ -242,7 +215,7 @@ body {
     padding-bottom: 20px;
 }
 
-.register-text, .logout-text,
+.register-text, .logout-text, .password-reset-text,
 .login-text{
     color: #fff;
     font-size: 1em;
@@ -251,7 +224,7 @@ body {
     padding-bottom: 20px;
 }
 
-.register-form,
+.register-form, .password-reset-form,
 .login-form{
     color: #fff !important;
 }
@@ -280,4 +253,316 @@ body {
 
 .logout-center{
     text-align: center;
+}
+
+/* Mobile Nav */
+
+.navbar-toggler{
+    background-color: #f20929;
+}
+
+.navbar-toggler-icon{
+    background-color: #fff;
+}
+
+/* Media queries */
+/* Very small screens */
+@media screen and (max-width: 319px) {
+    /* Make all pizza cards the same height for consistency */
+    .card {
+        border: none;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 100px;
+        background-color: #fff;
+    }
+    
+    .card-img-top {
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        max-width: 100%;
+        height:auto;
+    }
+
+    .image-flash {
+        position: absolute;
+        padding-top: 15px;
+        padding-right: 15px;
+        bottom: 5%;
+        left: -2px;
+        min-width: 50%;
+        background-color: #fff;
+        border-color: #798539;
+        color: #798539;
+        font-weight: bold;
+        font-size: 1em;
+        border-top-right-radius: 90px;
+        border-bottom-right-radius: 90px;
+        line-height: 0.75;
+    }
+
+    .title{
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .updatebutton {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Align items to the center */
+    }
+
+    .updatebutton button {
+        margin-top: 10px; /* Add spacing above the button */
+    }
+}
+/* Small screens and up */
+@media screen and (min-width: 320px) and (max-width: 374px) {
+    /* Make all pizza cards the same height for consistency */
+    .card {
+        border: none;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 100px;
+        background-color: #fff;
+    }
+    
+    .card-img-top {
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        max-width: 100%;
+        height:auto;
+    }
+
+    .image-flash {
+        position: absolute;
+        padding-top: 15px;
+        padding-right: 15px;
+        bottom: 5%;
+        left: -2px;
+        min-width: 50%;
+        background-color: #fff;
+        border-color: #798539;
+        color: #798539;
+        font-weight: bold;
+        font-size: 1em;
+        border-top-right-radius: 90px;
+        border-bottom-right-radius: 90px;
+        line-height: 0.75;
+    }
+
+    .title{
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .updatebutton {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Align items to the center */
+    }
+
+    .updatebutton button {
+        margin-top: 10px; /* Add spacing above the button */
+    }
+}
+
+/* Medium devices */
+@media screen and (min-width: 375px) and (max-width: 424px) {
+     /* Make all pizza cards the same height for consistency */
+     .card {
+        border: none;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 100px;
+        background-color: #fff;
+    }
+    
+    .card-img-top {
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        max-width: 100%;
+        height:auto;
+    }
+
+    .image-flash {
+        position: absolute;
+        padding-top: 15px;
+        padding-right: 15px;
+        bottom: 5%;
+        left: -2px;
+        min-width: 50%;
+        background-color: #fff;
+        border-color: #798539;
+        color: #798539;
+        font-weight: bold;
+        font-size: 1em;
+        border-top-right-radius: 90px;
+        border-bottom-right-radius: 90px;
+        line-height: 0.75;
+    }
+
+    .title{
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .updatebutton {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Align items to the center */
+    }
+
+    .updatebutton button {
+        margin-top: 10px; /* Add spacing above the button */
+    }
+}
+
+/* Large devices */
+@media screen and (min-width: 425px) and (max-width: 767px){
+     /* Make all pizza cards the same height for consistency */
+     .card {
+        border: none;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 100px;
+        background-color: #fff;
+    }
+    
+    .card-img-top {
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        max-width: 100%;
+        height:auto;
+    }
+
+    .image-flash {
+        position: absolute;
+        padding-top: 15px;
+        padding-right: 15px;
+        bottom: 5%;
+        left: -2px;
+        min-width: 50%;
+        background-color: #fff;
+        border-color: #798539;
+        color: #798539;
+        font-weight: bold;
+        font-size: 1em;
+        border-top-right-radius: 90px;
+        border-bottom-right-radius: 90px;
+        line-height: 0.75;
+    }
+
+    .title{
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .updatebutton {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Align items to the center */
+    }
+
+    .updatebutton button {
+        margin-top: 10px; /* Add spacing above the button */
+    }
+}
+
+/* tablets */
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+     /* Make all pizza cards the same height for consistency */
+     .card {
+        border: none;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 100px;
+        background-color: #fff;
+    }
+    
+     .card-img-top {
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        max-width: 100%;
+        height:auto;
+    }
+
+    .image-flash {
+        position: absolute;
+        padding-top: 15px;
+        padding-right: 15px;
+        bottom: 5%;
+        left: -2px;
+        min-width: 50%;
+        background-color: #fff;
+        border-color: #798539;
+        color: #798539;
+        font-weight: bold;
+        font-size: 1em;
+        border-top-right-radius: 90px;
+        border-bottom-right-radius: 90px;
+        line-height: 0.75;
+    }
+
+    .title{
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .updatebutton {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Align items to the center */
+    }
+
+    .updatebutton button {
+        margin-top: 10px; /* Add spacing above the button */
+    }
+}
+
+/* desktops */
+@media screen and (min-width: 1280px) {
+    /* make all pizza cards the same height for consistency */
+    .card {
+        border: none;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 100px;
+        background-color: #fff;
+    }
+    
+    .card-img-top {
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        max-width: 100%;
+        height:auto;
+    }
+
+    .image-flash {
+        position: absolute;
+        padding-top: 15px;
+        bottom: 5%;
+        left: -2px;
+        min-width: 50%;
+        background-color: #fff;
+        border-color: #798539;
+        color: #798539;
+        font-weight: bold;
+        font-size: 1.2em;
+        border-top-right-radius: 90px;
+        border-bottom-right-radius: 90px;
+        line-height: 0.75;
+    }
+
+    .title{
+        color: #fff;
+        font-size: 3.5em;
+        font-weight: bold;
+    }
+
+    .updatebutton{
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+        margin-bottom: 10px;
+        padding-left: 1.5vw;
+    }
+
+    .card-body{
+        height:550px;
+    }
 }
