@@ -1,7 +1,7 @@
 /* Navbar */
 
 .navbar-text a {
-    color: #f20939;
+    color: #B10629;
 }
 
 .navbar-text-left {
@@ -14,33 +14,33 @@
 }
 
 .nav-link{
-    color: #f20939;
+    color: #B10629;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .nav-link:hover {
-    color: #d2913f;
+    color: #784F1C;
 }
 
 .active{
     font-weight: bold;
-    color: #d2913f !important;
+    color: #784F1C !important;
     
 }
 
 .navbar-nav .nav-link.active {
-    color: #d2913f;
+    color: #784F1C;
 }
 
 /* Body */
 
 body {
-    background-color: #f20929;
+    background-color: #AC061C;
     font-family: 'Montserrat', sans-serif;
 }
 
 .main-bg {
-    background-color: #f20929;
+    background-color: #AC061C;
 }
 
 .author {
@@ -117,7 +117,7 @@ body {
 }
 
 .please-login a{
-    color: #ad8875;
+    color: #fff;
 }
 
 .please-login a:hover{
@@ -162,7 +162,7 @@ body {
 
 .btn-delete,
 .btn-signup:active {
-    background-color: #ad8875;
+    background-color: #fff;
     color: #23BBBB;
 }
 
@@ -236,7 +236,7 @@ body {
 /* Signup */
 
 .login{
-    color: #ad8875 !important;
+    color: #fff !important;
 }
 
 .login label{
@@ -244,7 +244,7 @@ body {
 }
 
 .login:hover {
-    color: #798539 !important;
+    color: #545D27 !important;
 }
 
 .logout{
@@ -258,7 +258,7 @@ body {
 /* Mobile Nav */
 
 .navbar-toggler{
-    background-color: #f20929;
+    background-color: #AC061C;
 }
 
 .navbar-toggler-icon{
@@ -291,8 +291,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
@@ -340,8 +340,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
@@ -390,8 +390,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
@@ -440,8 +440,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
@@ -490,8 +490,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
