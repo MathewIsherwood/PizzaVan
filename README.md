@@ -636,7 +636,23 @@ All code has been validated through:
 - **HTML**: [W3C Markup Validator](https://validator.w3.org/).
 - **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
 - **Python**: PEP8 validation to ensure code quality.
-- **Lighthouse**: 
+- **Lighthouse**: Validated to the below standards. If I was using a paid plan of Cloudinary and/or Heroku these scores would be better than shown.
+
+### Desktop
+![Desktop Lighthouse Scores](planning_files/Lighthouse-DesktopScores.jpg)
+![Best Practices Score, Reason 1](planning_files/Lighthouse-BestPractices.jpg)
+- As noted above, if I had paid f or a `Heroku` package I would have been given an HTTPS link and this score would be 100 instead of 78.
+
+### Mobile
+![Mobile Lighthouse Scores](planning_files/Lighthouse-MobileScores.jpg)
+![Performance Score, Reason 1](planning_files/Lighthouse-MobilePerformance-Reason1.jpg)
+- This score is  due to the slow package I have with Cloudinary. If I had a paid package this delivery time would be much higher.
+
+![Performance Score, Reason 2](planning_files/Lighthouse-MobilePerformance-Reason2.jpg)
+- The modules of Cloudflare and Heroku would be faster if I was on a paid package.
+
+![Performance Score, Reason 3](planning_files/Lighthouse-MobilePerformance-Reason3.jpg)
+- This is because of Heroku being on a free package and thus taking longer than desired for the scanners rankings.
 
 ## Deployment
 

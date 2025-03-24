@@ -1,7 +1,7 @@
 /* Navbar */
 
 .navbar-text a {
-    color: #f20939;
+    color: #B10629;
 }
 
 .navbar-text-left {
@@ -14,12 +14,12 @@
 }
 
 .nav-link{
-    color: #f20939;
+    color: #B10629;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .nav-link:hover {
-    color: #d2913f;
+    color: #784F1C;
 }
 
 .active{
@@ -244,7 +244,7 @@ body {
 }
 
 .login:hover {
-    color: #798539 !important;
+    color: #545D27 !important;
 }
 
 .logout{
@@ -291,8 +291,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
@@ -340,8 +340,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
@@ -390,8 +390,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
@@ -440,8 +440,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
@@ -490,8 +490,8 @@ body {
         left: -2px;
         min-width: 50%;
         background-color: #fff;
-        border-color: #798539;
-        color: #798539;
+        border-color: #545D27;
+        color: #545D27;
         font-weight: bold;
         font-size: 1em;
         border-top-right-radius: 90px;
