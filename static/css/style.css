@@ -35,12 +35,12 @@
 /* Body */
 
 body {
-    background-color: #f20929;
+    background-color: #AC061C;
     font-family: 'Montserrat', sans-serif;
 }
 
 .main-bg {
-    background-color: #f20929;
+    background-color: #AC061C;
 }
 
 .author {
@@ -258,7 +258,7 @@ body {
 /* Mobile Nav */
 
 .navbar-toggler{
-    background-color: #f20929;
+    background-color: #AC061C;
 }
 
 .navbar-toggler-icon{
