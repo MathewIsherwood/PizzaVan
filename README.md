@@ -595,9 +595,10 @@ Role-based access control (RBAC) is implemented using Django's Permission system
 
 - ### Confirmation / Notification Messages
 ![Confirmation - Order Creation](planning_files/Notification-OrderCreation.jpg)
-![](planning_files/Notification-UpdateOrder.jpg)
-![alt text](planning_files/Notification-DeleteOrder.jpg)
-
+![Confirmation - Order Update](planning_files/Notification-UpdateOrder.jpg)
+![Confirmation - Order Deletion](planning_files/Notification-DeleteOrder.jpg)
+![Confirmation - User Login](planning_files/Notification-Login.jpg)
+![Confirmation - User Logoff](planning_files/Notification-Logoff.jpg)
 
 ## Future Features
 I plan to implement the following in future iterations:
@@ -628,7 +629,47 @@ I plan to implement the following in future iterations:
 
 ## **Testing**
 
-TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+|Page|Feature|Action|Effect|
+|---|---|---|---|
+|Homepage|Site Logo|Click|Attempts to load order page, but you are already on it, refreshes page|
+|Homepage|Order Pizza Link|Click|Attempts to load order page, but you are already on it, refreshes page|
+|Homepage|Register Link|Click|Redirects to Register/Sign Up Page|
+|Homepage|Login Link|Click|Redirects to Sign In Page|
+|Homepage|My Orders Link|Click|Redirects to My Orders Page|
+|Homepage|Order Link|Click|Creates an order for that Pizza x 1|
+|Homepage|Update Button|Click|Updates the Pizza quantity to the one put inside the box|
+|Homepage|Delete Link|Click|Deletes that Pizza from the order|
+|Homepage|Next Link|Click|Shows the next page of Pizzas|
+|Homepage|Previous Link|Click|Goes to the previous page of Pizzas|
+|Homepage|Logout link|Click|Redirects to confirm signout page|
+|Homepage|Update Quantity Form Data Blank| Delete number| Error Message Shown|
+|Homepage|Update Quantity Form Data Correct | Change Number | Success Message Shown
+|Homepage|Call-to-Action login button|Click|Redirects to Login Page|
+|Homepage|Edit Button|Logged out|Not visible|
+|Homepage|Edit Button|Logged in : click|Visible - edits the Pizza value to the new number|
+|Homepage|Message on login|Login as user|Successful Signin message appears, X to clear|
+|Homepage|Message on logout|Logout|Successful signout message appears, X to clear|
+|Register Page|Site Logo|Click|Redirects to pizza order page from all pages|
+|Register Page|Order Pizza Link|Click|Loads the main page / order Pizza page|
+|Register Page|Login Link|Click|Redirects to Sign In Page|
+|Register Page|Register Link|Click|Attempts to redirect to Register/Sign Up Page, but you are already on it so it refreshes the page.|
+|Register Page|Username validation|Try using existing username|Error message appears - 'A user with that username already exists'|
+|Register Page|email validation|Entered invalid email (without '@'|Error message - 'Please enter valid email address' and registration fails|
+|Register Page|password1|Enter a short password|Error message - 'That password is too short'|
+|Register Page|password2|Enter different password to password1 field|Error message - 'You must type the same password each time'|
+|Register Page|Sign Up button|Entered valid form data|Redirects to home page - success message displayed|
+|Login Page|Site Logo|Click|Redirects to pizza order page from all pages|
+|Login Page|Order Pizza Link|Click|Loads the main page / order Pizza page|
+|Login Page|Forgot Your Password Link|Click|Loads the forgotten password page|
+|Login Page|Sign In Button|Fill  out Username and Password, Click Sign In|Redirect to Order Page logged in|
+|Login Page|Username validation|Enter incorrect username|Error message response - does not specify if username or password failed|
+|Login Page|Password validation|Enter incorrect password|Error message response - does not specify if username or password failed|
+|Login Page|Remember me button|Checkbox on|Close browser window and reopen - user still logged in|
+|Login Page|Sign in button|Click|Redirects to home page, shows successful login message|
+|Logout Page|Site Logo|Click|Redirects to pizza order page from all pages|
+|Logout Page|Order Pizza Link|Click|Loads the main page / order Pizza page|
+|Logout Page|My Orders Link|Click|Redirects to My Orders Page|
+|Logout Confirm Popup|Sign Out button|Click|Redirects to home page, user logged out|
 
 ### **Validation Testing**
 
@@ -636,23 +677,20 @@ All code has been validated through:
 - **HTML**: [W3C Markup Validator](https://validator.w3.org/).
 - **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
 - **Python**: PEP8 validation to ensure code quality.
-- **Lighthouse**: Validated to the below standards. If I was using a paid plan of Cloudinary and/or Heroku these scores would be better than shown.
+- **Lighthouse**: Validated to below my standards on mobile performance. If I was using a paid plan of Cloudinary and/or Heroku these scores would be better than shown.
+- **Pep8**: Validated inside VSCode with Flake8
 
 ### Desktop
 ![Desktop Lighthouse Scores](planning_files/Lighthouse-DesktopScores.jpg)
-![Best Practices Score, Reason 1](planning_files/Lighthouse-BestPractices.jpg)
-- As noted above, if I had paid f or a `Heroku` package I would have been given an HTTPS link and this score would be 100 instead of 78.
 
 ### Mobile
 ![Mobile Lighthouse Scores](planning_files/Lighthouse-MobileScores.jpg)
-![Performance Score, Reason 1](planning_files/Lighthouse-MobilePerformance-Reason1.jpg)
-- This score is  due to the slow package I have with Cloudinary. If I had a paid package this delivery time would be much higher.
 
-![Performance Score, Reason 2](planning_files/Lighthouse-MobilePerformance-Reason2.jpg)
-- The modules of Cloudflare and Heroku would be faster if I was on a paid package.
+![Mobile Lighthouse issue 1](planning_files/Lighthouse-MobileScores-PerformanceIssue1.jpg)
 
-![Performance Score, Reason 3](planning_files/Lighthouse-MobilePerformance-Reason3.jpg)
-- This is because of Heroku being on a free package and thus taking longer than desired for the scanners rankings.
+![Mobile Lighthouse issue 2 and 3](planning_files/Lighthouse-MobileScores-PerformanceIssue2and3.jpg)
+
+- These issues are because of Heroku and Cloudinary being on a free package and thus taking longer than desired for the scanners rankings. The score you get for mobile may be more favourable or less depending on location and time of day. I have attempted to adjust for this impact with Lazyload and other optimisation changes which are reflected in the Desktop score above.
 
 ## Deployment
 
