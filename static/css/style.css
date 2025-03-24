@@ -24,12 +24,12 @@
 
 .active{
     font-weight: bold;
-    color: #d2913f !important;
+    color: #784F1C !important;
     
 }
 
 .navbar-nav .nav-link.active {
-    color: #d2913f;
+    color: #784F1C;
 }
 
 /* Body */
@@ -117,7 +117,7 @@ body {
 }
 
 .please-login a{
-    color: #ad8875;
+    color: #fff;
 }
 
 .please-login a:hover{
@@ -162,7 +162,7 @@ body {
 
 .btn-delete,
 .btn-signup:active {
-    background-color: #ad8875;
+    background-color: #fff;
     color: #23BBBB;
 }
 
@@ -236,7 +236,7 @@ body {
 /* Signup */
 
 .login{
-    color: #ad8875 !important;
+    color: #fff !important;
 }
 
 .login label{
