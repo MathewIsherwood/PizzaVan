@@ -2,7 +2,10 @@
 ![Pizza Me - All Devices](all-devices-black.png)
 
 Live site: <a href="https://pizzame-c9ad4b305843.herokuapp.com/" target="_blank">PizzaMe!</a>.
-For **Admin access** with relevant sign-in information (User: Django. Pass: Unchained), click <a href="https://pizzame-c9ad4b305843.herokuapp.com/admin/" target="_blank">here</a>. Github repository, click <a href="https://github.com/MathewIsherwood/PizzaVan" target="_blank">here</a>.
+
+For **Admin access** with relevant sign-in information (User: Django. Pass: Unchained), <a href="https://pizzame-c9ad4b305843.herokuapp.com/admin/" target="_blank">PizzaMe! Admin</a>. 
+
+<a href="https://github.com/MathewIsherwood/PizzaVan" target="_blank">Github repository</a>.
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -15,8 +18,8 @@ For **Admin access** with relevant sign-in information (User: Django. Pass: Unch
     - [Strategy Plane](#strategy-plane)
     - [Site Goals](#site-goals)
     - [Agile Methodologies - Project Management](#agile-methodologies---project-management)
-    - [MoSCoW Prioritization](#moscow-prioritization)
     - [Sprints](#sprints)
+    - [MoSCoW Prioritization](#moscow-prioritization)
     - [User Stories](#user-stories)
 5. [Scope Plane](#scope-plane)
 6. [Structural Plane](#structural-plane)
@@ -42,19 +45,24 @@ For **Admin access** with relevant sign-in information (User: Django. Pass: Unch
   - [User Testing](#user-testing)
   - [Bugs](#bugs)
 16. [Deployment](#deployment)
-    - [Connecting to GitHub](#connecting-to-github)
-    - [Django Project Setup](#django-project-setup)
-    - [Cloudinary API](#cloudinary-api)
-    - [PostgreSQL](#postgresql)
-    - [Heroku deployment](#heroku-deployment)
-    - [Clone project](#clone-project)
-    - [Fork Project](#fork-project)
-17. [Privacy Policy](#privacy-policy)
-18. [Credits](#credits)
+    - [Pre-Deployment](#pre-deployment)
+    - [Cloudinary - Setting Up](#cloudinary---setting-up)
+    - [Heroku Notes](#heroku-notes)
+    - [Deploying with Heroku](#deploying-with-heroku)
+    - [Fork this Repository](#fork-this-repository)
+    - [Clone this Repository](#clone-this-repository)
+17. [AI](#ai)
+    - [Use AI tools to assist in code creation](#use-ai-tools-to-assist-in-code-creation)
+    - [Use AI tools to assist in debugging code](#use-ai-tools-to-assist-in-debugging-code)
+    - [Use AI tools to optimize code for performance and user experience](#use-ai-tools-to-optimize-code-for-performance-and-user-experience)
+    - [Use AI tools to create automated unit tests](#use-ai-tools-to-create-automated-unit-tests)
+    - [Reflect on AI’s role in the development process and its impact on workflow](#reflect-on-ais-role-in-the-development-process-and-its-impact-on-workflow)
+18. [Privacy Policy](#privacy-policy)
+19. [Credits](#credits)
     - [Code](#code)
     - [Media](#media)
-    - [Additional reading/tutorials/books/blogs](#additional-readingtutorialsbooksblogs)
-19. [Acknowledgements](#acknowledgements)
+    - [Additional reading/tutorials](#additional-readingtutorials)
+20. [Acknowledgements](#acknowledgements)
 
 ## Overview
 PizzaMe is an online platform that allows users to:
@@ -116,6 +124,17 @@ The primary objective of PizzaMe is to bridge the gap between people who want pi
 
 ### Agile Methodologies - Project Management
 I used an agile approach to project management. The PizzaMe development process was broken into sprints, and tasks were added to the GitHub project board to be tracked and managed through issues.
+https://github.com/users/MathewIsherwood/projects/5
+
+### Sprints
+- **Sprint 1:** Initial Setup - Project, repository, environment setup.
+- **Sprint 2:** User Authentication (Task 1)
+- **Sprint 3:** Pizza Create Order and View (Tasks 3 and 5)
+- **Sprint 4:** Pizza Order Editing (Task 4)
+- **Sprint 5:** Pizza Delete (Task 6)
+- **Sprint 6:** Notifications (Task 2)
+- **Sprint 7:** UI/UX Improvements for multidevice accessibility. 
+- **Sprint 8:** Final Deployment & Testing.
 
 ### MoSCoW Prioritization
 ### Must-Haves
@@ -360,13 +379,6 @@ I used an agile approach to project management. The PizzaMe development process 
     - Design a responsive photo section in the review.
     - Ensure photos are displayed correctly with the review.
 
-### Sprints
-- **Sprint 1:** Initial Setup - Project, repository, environment setup.
-- **Sprint 2:** User Authentication & Role-Based Dashboards.
-- **Sprint 3:** Specialist Search & Item Order System.
-- **Sprint 4:** Static Pages & UI/UX Improvements.
-- **Sprint 5:** Deployment & Testing.
-
 ## User Stories
 ### Guest User Stories (Users Without an Account)
 
@@ -434,7 +446,7 @@ Wireframes were created for the following key pages to ensure an intuitive user 
     <summary>Wireframe - Login / Logout Page</summary>  
     <img src="planning_files/Wireframe-LoginLogout.jpg"> 
 </details>
-<br />
+
 Wireframes were designed using [Balsamiq](https://balsamiq.com/), ensuring responsiveness across devices. Wireframes include all MoSCoW Prioritization levels.
 
 ## database schema - entity relationship diagram
@@ -488,8 +500,6 @@ orderitem (many-to-many between order & pizza)
 ![Initial ERD](<planning_files/Initial-ERD.jpg>)
 
 The above ERD was generated using https://dbdiagram.io/
-
-`Check authentication: I Think Therefore I Blog > Authentication > Django AllAuth`
 
 ~~~
 Table userAllauth {
@@ -550,9 +560,9 @@ All data is securely handled with Django’s security features, including:
 - Data encryption for sensitive information like passwords using Django's built-in authentication.
 - Role-based access control to restrict sensitive data to authorized users.
 
-Role-based access control (RBAC) is implemented using Django's Group and Permission systems. Patients, specialists, and admins are grouped based on their role, and their access to features and sensitive information is restricted accordingly. Patients can only access their own medical data and booking history, while specialists can only view data related to their consultations. Admins have the broadest access for system management.
+Role-based access control (RBAC) is implemented using Django's Permission systems. `Customers` and `Admins` are grouped based on their role, and their access to sensitive information is restricted accordingly.  `Admins` have the broadest access for system management through the admin panel. `Customers` can access their own orders through the my_orders page. `Guest/Visitors` can only see the products.
 
-### Pizza Booking System
+## Pizza Booking System
 
 ### Confirmation Messages
 - **User Feedback**: Confirmation messages are shown to users when important actions are performed, such as logging in, booking a pizza, editing a pizza or deleting a pizza. These messages help ensure a smooth user experience by providing feedback on successful actions.
@@ -592,7 +602,6 @@ Role-based access control (RBAC) is implemented using Django's Group and Permiss
 ## Future Features
 I plan to implement the following in future iterations:
 - Push notifications for upcoming site visits near my location.
-- Integrate payment system for online order payments.
 - Integrate a payment system for the Pizza's
 - Give the admin and customer more functionality such as being able to review a Pizza
 
@@ -619,9 +628,137 @@ I plan to implement the following in future iterations:
 
 ## **Testing**
 
+TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+
 ### **Validation Testing**
 
 All code has been validated through:
 - **HTML**: [W3C Markup Validator](https://validator.w3.org/).
 - **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
 - **Python**: PEP8 validation to ensure code quality.
+
+## Deployment
+
+All code for this project was written in Visual Studio as the integrated development environment. GitHub was used for version control, and the application was deployed to Heroku from GitHub with Cloudinary as hosting for the files.
+
+### Pre-Deployment
+
+### Cloudinary - Setting Up
+1. Navigate to www.cloudinary.com, and click the Sign Up for Free button. Create a new account.
+2. Click on Create Account, and click the link in the verification email that you'll be sent.
+3. On the Dashboard, copy the API Environment variable somewhere safe - this must be added to the Heroku
+configuration variables in the next section and in your env.py file.
+
+### Heroku Notes
+
+To ensure a successful deployment to Heroku, the following practices are to be followed:
+
+- **Requirements File:** The `requirements.txt` file must be kept up to date to ensure all imported Python modules are configured correctly for Heroku.
+- **Procfile:** A `Procfile` was added to configure the application as a Gunicorn web app on Heroku.
+- **Allowed Hosts:** In `settings.py`, the `ALLOWED_HOSTS` list was configured to include the Heroku app name and `localhost`. Example format:
+    ```python
+    ALLOWED_HOSTS = ['your-app-name.herokuapp.com', 'localhost']
+    ```
+- **Environment Variables:** All sensitive data such as the `DATABASE_URL`, `CLOUDINARY_URL`, and `SECRET_KEY` are added to the `.env` file, which is ignored by Git using `.gitignore`. These variables are added to Heroku manually through the Config Vars section.
+
+### Deploying with Heroku
+
+The steps for deploying to Heroku are as follows (Experience from previous Django projects):
+
+1. **Create New App:** Log in to your Heroku account and click on the "Create New App" button.
+2. **App Name:** Choose a unique name for your app.
+3. **Select Region:** Choose the appropriate region (Europe was selected for this project).
+4. **Create App:** Click the "Create App" button to proceed.
+5. **Deployment Method:** In the "Deploy" tab, select GitHub as the deployment method.
+6. **Connect to GitHub:** Search for the repository name and click "Connect".
+7. **Manual or Automatic Deployment:** Select either manual or automatic deployment. Ensure the main branch is selected for deployment.
+8. **Config Vars:** In the "Settings" tab, click "Reveal Config Vars" and input the required environment variables.
+9. **Buildpack:** Select Node.js and Python as the buildpacks for your project.
+10. **Deploy:** Once the configuration is complete, click the "Deploy Branch" button. After successful deployment, a "View" button will appear to take you to the live site.
+
+The live link for this project can be found here: <a href="https://pizzame-c9ad4b305843.herokuapp.com/" target="_blank">PizzaMe!</a>
+
+### Fork this Repository
+
+1. Go to the GitHub repository.
+2. Click the "Fork" button in the upper right-hand corner.
+
+### Clone this Repository
+
+1. Go to the GitHub repository.
+2. Click the "Code" button at the top of the page.
+3. Choose between 'HTTPS', 'SSH', or 'GitHub CLI' depending on your preference.
+4. Click the copy button to copy the URL.
+5. Open Git Bash.
+6. Change the working directory to where you want to clone the directory.
+7. Type:
+    ```bash
+    git clone https://github.com/MathewIsherwood/PizzaVan
+    ```
+8. Press Enter to create the local clone.
+
+**Note:** The difference between a clone and a fork is that with a clone, you need permission to push changes to the original repository, whereas a fork creates an entirely new project under your GitHub account.
+
+## AI
+### Use AI Tools to Assist in Code Creation
+AI tools, such as GitHub Copilot and ChatGPT, were utilized to generate code snippets aligned with project requirements. These tools helped streamline the development process by providing suggestions for repetitive tasks, boilerplate code, and complex logic implementations. The generated code was reviewed and adjusted to ensure it met the project’s standards and functionality. Sometimes my lack of knowledge about code suggested led me down a fruitless hole which I had to revert out of, for example it was suggested I use a counter in **with** by Copilot, but I didn't know that Django templates didn't allow that. On the whole the use of AI was positive for the project.
+On a positive note, when my functions and classes were becoming more complicated (my `views.py`) the AI suggestions generally improved my ability to develop changes without hitting errors. 
+
+### Use AI Tools to Assist in Debugging Code
+AI tools were employed to identify and resolve bugs efficiently. By analyzing error messages and suggesting potential fixes, these tools reduced debugging time and improved code reliability. Key interventions included resolving syntax errors (missing : ; etc), optimizing database queries, and addressing edge cases. AI also helped clean my code to pass PEP8.
+
+### Use AI Tools to Optimize Code for Performance and User Experience
+AI-driven suggestions were used to enhance code performance and improve user experience. This included optimizing database queries, and refining UI/UX elements. The AI recommendations were evaluated and implemented selectively to ensure they aligned with project goals. This helped me not stray too far in the `views.py` and focus on bringing over only the neccesarry data. This was especially helpful in `order_pizza` when the if statements started to build up.
+
+### Use AI Tools to Create Automated Unit Tests
+GitHub Copilot was leveraged to generate Django unit tests for key application features. These tests ensured adequate code coverage and validated the functionality of critical components. The generated tests were reviewed and modified as needed to improve accuracy and completeness.
+
+### Reflect on AI’s Role in the Development Process and Its Impact on Workflow
+AI tools significantly enhanced the development workflow by increasing efficiency and reducing repetitive tasks. They provided valuable detailed insights during debugging, optimized performance by removing the unneccsary, and facilitated the creation of robust unit tests `tests.py`. The integration of AI tools allowed me to focus on higher-level problem-solving and innovation, ultimately improving the overall quality of the project. Despite not getting as much finished as I wanted, this was my fault being new at `Django` rather than my use of AI on the project.
+
+## Privacy Policy
+As part of the **PizzaMe!** project, I was dedicated to ensuring that users’ personal data is handled responsibly. The following privacy practices outline how information is collected, used, and stored within this academic project.
+
+- **Data Collection**: PizzaMe!, as a project, collects very little personal data during user registration. This includes:
+  - Username (Can be anything, doesn't have to be a name)
+  - E-Mail Address (Optional)
+  - Password
+
+- **Data Sharing**: As this is a student project, personal data will not be shared with any third parties. It will only be used for demonstrating the functionality of the project. All information remains confidential and will not be distributed beyond the scope of the PizzaMe! project.
+
+- **Security**: While this project is intended for educational use, I strive to implement best practices for data security using the Django framework’s built-in tools, particularly in using the . Personal information is securely stored in the database and protected against unauthorized access.
+
+- **User Rights**: Users of this platform, as part of this project, have the right to request modifications or deletion of their data. For any requests or concerns about personal data usage in this project, please contact me on github.
+
+Since this is an educational project, the privacy and data handling policies may evolve over time as more features are added and refined.
+
+## Credits
+
+### Code
+- **Django Documentation**: The official docs were helpful as were the files provided by Code Institute and Alex (our tutor) for setting up the project structure and solving specific issues.
+- **Django Crispy Forms Documentation**: Initially I used to streamline form rendering but due to cutbacks in the project to fit the project into the time allowed I remvoed its usage with what was implemented.
+- **Chatgpt AI**: For images and some coding ideas.
+- **Copilot AI**: For code debugging, suggestions and for taking me on wild goose chases such as including a  *with* then after half an hour of debugging telling me that Django doesn't allow *with* to carry that value over in that way.
+- **tinypng.com**: For optimisation of the image file size for delivery.
+- **imageresizer.com**: For optimising the image size on the wbesite for placement.
+- **Google Fonts**: For typography.
+- **HealMate**: A student project that passed this course, I used elements of it's readme file for structuring my own.
+- **Hata-na-tata**: A student project that passed this course, I used elements of it's readme file for structuring my own.
+- **John Rearden** - Code Institute: For general guidance and coding advice.
+- **Alexander Tastad** - Code Institute: For general guidance and paperwork assistance.
+
+### Media
+- Icons and images sourced from **ChatGPT**.
+- ERD illustration was generated from [dbdiagram.io](https://dbdiagram.io/)
+
+### Additional reading/tutorials
+- [W3Schools](https://www.w3schools.com/) was used for example finding when the LMS (which doesn't have a search bar) examples couldn't be found. 
+
+## Acknowledgements 
+I wish to thank many people for helping me finish this project including **Mark Randall**, **Hannah Mooney**, **Aaron Ibbotson** and **David Coles**. Whose support, guidance and assistance were critical in helping me finish the project in time.
+
+### Academic Institutions
+- **Code Institute** – Thank you for providing the learning environment and resources that made this project possible. I am especially grateful to the professors and staff at Code Institute for their valuable insights, especially through the coding coach sessions. 
+
+### Final Note
+This was a difficult project, especially considering how much I had to cut it back due to issues during coding. There remains a full plan in place to implement those features but unfortunately there won't be time to do them for this project. Thank you to all those named above and others for their help in getting me through to the finish.
