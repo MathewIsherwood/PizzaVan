@@ -1,4 +1,8 @@
 /* Navbar */
+a{
+    color: #F1F8FE;
+}
+
 
 .navbar-text a {
     color: #B10629;
@@ -149,7 +153,7 @@ body {
 }
 
 .btn-signup{
-    background-color: #856404;
+    background-color: #FDF7E2;
     color: #100000;
 }
 
