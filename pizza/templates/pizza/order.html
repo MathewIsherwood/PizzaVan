@@ -28,7 +28,7 @@
                       {% if "placeholder" in pizza.featured_image.url %}
                       <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image" width="368px" height="368px">
                       {% else %}
-                      <img class="card-img-top" src="{{ pizza.featured_image.url }}" alt="{{ pizza.name }}" width="368px" height="368px">
+                      <img class="card-img-top" src="{{ pizza.featured_image.url }}" alt="{{ pizza.name }}" width="368px" height="368px" {% if forloop.counter > 1 %}loading="lazy"{% endif %}>
                       {% endif %}
                       <div class="image-flash">
                         <p class="Pizza">Pizza: {{ pizza.name }}</p>
