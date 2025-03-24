@@ -16,7 +16,7 @@
         <div class="row">
           <!-- Pizza's Available -->
           {% if not user.is_authenticated %}
-          <p class="text-center please-login">Please <a href="{% url 'account_login' %}">login</a> to order pizza, or <a href="{% url 'account_signup' %}">Register</a> if you are new here!</p>
+          <p class="text-center please-login">Please <a href="{% url 'account_login' %}" aria-label="Login to order pizza">login</a> to order pizza, or <a href="{% url 'account_signup' %}" aria-label="Register to create an account and order pizza">Register</a> if you are new here!</p>
           {% endif %}
           <div class="col-12 mt-3 left">
             <div class="row">
@@ -26,9 +26,9 @@
                   <div class="card-body">
                     <div class="image-container">
                       {% if "placeholder" in pizza.featured_image.url %}
-                      <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                      <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image" width="" height="">
                       {% else %}
-                      <img class="card-img-top" src="{{ pizza.featured_image.url }}" alt="{{ pizza.name }}">
+                      <img class="card-img-top" src="{{ pizza.featured_image.url }}" alt="{{ pizza.name }}" width="" height="">
                       {% endif %}
                       <div class="image-flash">
                         <p class="Pizza">Pizza: {{ pizza.name }}</p>
@@ -41,7 +41,7 @@
                       {% if cart_order %}
                         {% if order_items %}
                             <!-- If the pizza is not in the cart, show the order button -->
-                            <span class="orderbutton" style="display: block;" id="OrderButton{{pizza.id}}"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a></span>
+                            <span class="orderbutton" style="display: block;" id="OrderButton{{pizza.id}}"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary" aria-label="Order {{ pizza.name }} pizza">Order</a></span>
                             {% for order_item in order_items %}
                               {% if order_item.pizza_id_id == pizza.id %}
                                 <!--  Hide the order button -->
@@ -51,20 +51,20 @@
                                 {% csrf_token %}
                                 <span class="updatebutton"><label for="quantity{{pizza.id}}" class="me-2">Quantity:</label>
                                 <input type="number" id="quantity{{pizza.id}}" name="quantity" value="{{ order_item.quantity }}" min="1" class="form-control me-2" style="width: 60px;">
-                                <button type="submit" class="btn btn-secondary btn-custom-width">Update</button>
+                                <button type="submit" class="btn btn-secondary btn-custom-width" name="Update Order">Update</button>
                                 </span></form>
                                 <span class="deletebutton">
-                                <a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger btn-custom-width">Delete</a>
+                                <a href="{% url 'delete_pizza_order' pizza.id %}" class="btn btn-danger btn-custom-width" aria-label="Delete {{ pizza.name }} pizza from your order">Delete</a>
                                 </span> 
                               {% endif %}
                             {% endfor %}   
                         {% else %}
                         <!-- If there are no orders, create initial buttons -->
-                        <span class="orderbutton"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a></span>
+                        <span class="orderbutton"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary" aria-label="Order {{ pizza.name }} pizza">Order</a></span>
                         {% endif %}
                       {% else %}
                       <!-- If there is no cart, create initial buttons -->
-                      <span class="orderbutton"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary">Order</a></span>  
+                      <span class="orderbutton"><a href="{% url 'order_pizza' pizza.id %}" class="btn btn-primary" aria-label="Order {{ pizza.name }} pizza">Order</a></span>  
                       {% endif %}
                     {% endif %}        
                   </div>
@@ -83,12 +83,12 @@
           <ul class="pagination justify-content-center">
               {% if page_obj.has_previous %}
                 <li>
-                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous Page">&laquo; PREV</a>
                 </li>
               {% endif %}
               {% if page_obj.has_next %}
                 <li>
-                  <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a>
+                  <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next Page"> NEXT &raquo;</a>
                 </li>
               {% endif %}
           </ul>
