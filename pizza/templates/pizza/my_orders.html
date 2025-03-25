@@ -25,7 +25,7 @@
                     <ul>
                         {% for item in order.orderitem_set.all %}
                             <li>
-                                <img src="{{ item.pizza_id.featured_image.url }}" alt="{{ item.pizza_id.name }}" class="img-thumbnail" style="width: 100px; height: auto;" {% if forloop.counter > 1 %}loading="lazy"{% endif %}>
+                                <img src="{{ item.pizza_id.featured_image.url }}" alt="{{ item.pizza_id.name }}" class="img-thumbnail" style="width: 100px; height: auto;" loading="lazy">
                                 <strong>{{ item.pizza_id.name }}</strong> - Size: {{ item.pizza_id.size }}, Quantity: {{ item.quantity }}, Price: £{{ item.pizza_id.price }}
                             </li>
                         {% endfor %}
