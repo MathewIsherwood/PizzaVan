@@ -49,6 +49,7 @@ For **Admin access** with relevant sign-in information, <a href="https://pizzame
     - [Deploying with Heroku](#deploying-with-heroku)
     - [Fork this Repository](#fork-this-repository)
     - [Clone this Repository](#clone-this-repository)
+    - [Bugs](#bugs)
 17. [AI](#ai)
     - [Use AI tools to assist in code creation](#use-ai-tools-to-assist-in-code-creation)
     - [Use AI tools to assist in debugging code](#use-ai-tools-to-assist-in-debugging-code)
@@ -788,6 +789,11 @@ The live link for this project can be found here: <a href="https://pizzame-c9ad4
 
 **Note:** The difference between a clone and a fork is that with a clone, you need permission to push changes to the original repository, whereas a fork creates an entirely new project under your GitHub account.
 
+### Bugs
+- Due to a mistake in the `.gitignore` file the `env.py` file was uploaded. Because of this I regenerated all of my secret keys using the `from django.core.management.utils import get_random_secret_key` and `print(get_random_secret_key())` commands. 
+- I requested a new database url from CodeInstitute and implemented that into `env.py` and Heroku environmental variables.
+- I requested a new dataset from Cloudinary and implemented that into `env.py` and Heroku environmental variables.
+
 ## AI
 ### Use AI Tools to Assist in Code Creation
 AI tools, such as GitHub Copilot and ChatGPT, were utilized to generate code snippets aligned with project requirements. These tools helped streamline the development process by providing suggestions for repetitive tasks, boilerplate code, and complex logic implementations. The generated code was reviewed and adjusted to ensure it met the project’s standards and functionality. Sometimes my lack of knowledge about code suggested led me down a fruitless hole which I had to revert out of, for example it was suggested I use a counter in **with** by Copilot, but I didn't know that Django templates didn't allow that. On the whole the use of AI was positive for the project.
@@ -853,5 +859,3 @@ I wish to thank many people for helping me finish this project including **Mark 
 This was a difficult project, especially considering how much I had to cut it back due to issues during coding. There remains a full plan in place to implement those features but unfortunately there won't be time to do them for this project. Thank you to all those named above and others for their help in getting me through to the finish.
 
 
-from django.core.management.utils import get_random_secret_key
-print(get_random_secret_key())
