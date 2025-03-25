@@ -573,14 +573,19 @@ Role-based access control (RBAC) is implemented using Django's Permission system
 ## Features
 
 - ### User View - Unregistered
-
+Logged Out Order Page
 ![Logged Out Order Page](planning_files/LoggedOutOrderPage.jpg)
+Logged Out Sign Up Page
 ![Logged Out Sign Up Page](planning_files/LoggedOutSignUp.jpg)
+Logged Out Sign In Page
 ![Logged Out Sign In Page](planning_files/LoggedOutSignIn.jpg)
 
 - ### User View - Registered
+Logged In Order Page With Items
 ![Logged In Order Page With Items](planning_files/LoggedInOrderPageItems.jpg)
+Logged In Order Page Without Items
 ![Logged In Order Page Without Items](planning_files/LoggedInOrderPageNoItems.jpg)
+Logged In Sign Out Page
 ![Logged In Sign Out Page](planning_files/LoggedInSignOutPage.jpg)
 
 - ### Order System & CRUD Functionality
@@ -603,8 +608,10 @@ Role-based access control (RBAC) is implemented using Django's Permission system
 ## Future Features
 I plan to implement the following in future iterations:
 - Push notifications for upcoming site visits near my location.
-- Integrate a payment system for the Pizza's
-- Give the admin and customer more functionality such as being able to review a Pizza
+- Integrate a payment system for the Pizza's.
+- Give the admin and customer more functionality such as being able to review a Pizza.
+- Add a review section for the pizzas.
+- Add a contact section for people to contact the owners.
 
 ## Technologies & Languages Used
 - HTML5 - Markup language for structuring the website
@@ -629,64 +636,66 @@ I plan to implement the following in future iterations:
 
 ## **Testing**
 
-|Page|Feature|Action|Effect|
-|---|---|---|---|
-|Homepage|Site Logo|Click|Attempts to load order page, but you are already on it, refreshes page|
-|Homepage|Order Pizza Link|Click|Attempts to load order page, but you are already on it, refreshes page|
-|Homepage|Register Link|Click|Redirects to Register/Sign Up Page|
-|Homepage|Login Link|Click|Redirects to Sign In Page|
-|Homepage|My Orders Link|Click|Redirects to My Orders Page|
-|Homepage|Order Link|Click|Creates an order for that Pizza x 1|
-|Homepage|Update Button|Click|Updates the Pizza quantity to the one put inside the box|
-|Homepage|Delete Link|Click|Deletes that Pizza from the order|
-|Homepage|Next Link|Click|Shows the next page of Pizzas|
-|Homepage|Previous Link|Click|Goes to the previous page of Pizzas|
-|Homepage|Logout link|Click|Redirects to confirm signout page|
-|Homepage|Update Quantity Form Data Blank| Delete number| Error Message Shown|
-|Homepage|Update Quantity Form Data Correct | Change Number | Success Message Shown
-|Homepage|Call-to-Action login button|Click|Redirects to Login Page|
-|Homepage|Edit Button|Logged out|Not visible|
-|Homepage|Edit Button|Logged in : click|Visible - edits the Pizza value to the new number|
-|Homepage|Message on login|Login as user|Successful Signin message appears, X to clear|
-|Homepage|Message on logout|Logout|Successful signout message appears, X to clear|
-|Register Page|Site Logo|Click|Redirects to pizza order page from all pages|
-|Register Page|Order Pizza Link|Click|Loads the main page / order Pizza page|
-|Register Page|Login Link|Click|Redirects to Sign In Page|
-|Register Page|Register Link|Click|Attempts to redirect to Register/Sign Up Page, but you are already on it so it refreshes the page.|
-|Register Page|Username validation|Try using existing username|Error message appears - 'A user with that username already exists'|
-|Register Page|email validation|Entered invalid email (without '@'|Error message - 'Please enter valid email address' and registration fails|
-|Register Page|password1|Enter a short password|Error message - 'That password is too short'|
-|Register Page|password2|Enter different password to password1 field|Error message - 'You must type the same password each time'|
-|Register Page|Sign Up button|Entered valid form data|Redirects to home page - success message displayed|
-|Login Page|Site Logo|Click|Redirects to pizza order page from all pages|
-|Login Page|Order Pizza Link|Click|Loads the main page / order Pizza page|
-|Login Page|Forgot Your Password Link|Click|Loads the forgotten password page|
-|Login Page|Sign In Button|Fill  out Username and Password, Click Sign In|Redirect to Order Page logged in|
-|Login Page|Username validation|Enter incorrect username|Error message response - does not specify if username or password failed|
-|Login Page|Password validation|Enter incorrect password|Error message response - does not specify if username or password failed|
-|Login Page|Remember me button|Checkbox on|Close browser window and reopen - user still logged in|
-|Login Page|Sign in button|Click|Redirects to home page, shows successful login message|
-|Logout Page|Site Logo|Click|Redirects to pizza order page from all pages|
-|Logout Page|Order Pizza Link|Click|Loads the main page / order Pizza page|
-|Logout Page|My Orders Link|Click|Redirects to My Orders Page|
-|Logout Confirm Popup|Sign Out button|Click|Redirects to home page, user logged out|
+|Page|Feature|Action|Effect|Success?|
+|---|---|---|---|---|
+|Homepage|Site Logo|Click|Attempts to load order page, but you are already on it, refreshes page|&#x2713;|
+|Homepage|Order Pizza Link|Click|Attempts to load order page, but you are already on it, refreshes page|&#x2713;|
+|Homepage|Register Link|Click|Redirects to Register/Sign Up Page|&#x2713;|
+|Homepage|Login Link|Click|Redirects to Sign In Page|&#x2713;|
+|Homepage|My Orders Link|Click|Redirects to My Orders Page|&#x2713;|
+|Homepage|Order Link|Click|Creates an order for that Pizza x 1|&#x2713;|
+|Homepage|Update Button|Click|Updates the Pizza quantity to the one put inside the box|&#x2713;|
+|Homepage|Delete Link|Click|Deletes that Pizza from the order|&#x2713;|
+|Homepage|Next Link|Click|Shows the next page of Pizzas|&#x2713;|
+|Homepage|Previous Link|Click|Goes to the previous page of Pizzas|&#x2713;|
+|Homepage|Logout link|Click|Redirects to confirm signout page|&#x2713;|
+|Homepage|Update Quantity Form Data Blank| Delete number| Error Message Shown|&#x2713;|
+|Homepage|Update Quantity Form Data Correct | Change Number | Success Message Shown|&#x2713;|
+|Homepage|Call-to-Action login button|Click|Redirects to Login Page|&#x2713;|
+|Homepage|Edit Button|Logged out|Not visible|&#x2713;|
+|Homepage|Edit Button|Logged in : click|Visible - edits the Pizza value to the new number|&#x2713;|
+|Homepage|Message on login|Login as user|Successful Signin message appears, X to clear|&#x2713;|
+|Homepage|Message on logout|Logout|Successful signout message appears, X to clear|&#x2713;|
+|Register Page|Site Logo|Click|Redirects to pizza order page from all pages|&#x2713;|
+|Register Page|Order Pizza Link|Click|Loads the main page / order Pizza page|&#x2713;|
+|Register Page|Login Link|Click|Redirects to Sign In Page|&#x2713;|
+|Register Page|Register Link|Click|Attempts to redirect to Register/Sign Up Page, but you are already on it so it refreshes the page.|&#x2713;|
+|Register Page|Username validation|Try using existing username|Error message appears - 'A user with that username already exists'|&#x2713;|
+|Register Page|email validation|Entered invalid email (without '@'|Error message - 'Please enter valid email address' and registration fails|&#x2713;|
+|Register Page|password1|Enter a short password|Error message - 'That password is too short'|&#x2713;|
+|Register Page|password2|Enter different password to password1 field|Error message - 'You must type the same password each time'|&#x2713;|
+|Register Page|Sign Up button|Entered valid form data|Redirects to home page - success message displayed|&#x2713;|
+|Login Page|Site Logo|Click|Redirects to pizza order page from all pages|&#x2713;|
+|Login Page|Order Pizza Link|Click|Loads the main page / order Pizza page|&#x2713;|
+|Login Page|Forgot Your Password Link|Click|Loads the forgotten password page|&#x2713;|
+|Login Page|Sign In Button|Fill  out Username and Password, Click Sign In|Redirect to Order Page logged in|&#x2713;|
+|Login Page|Username validation|Enter incorrect username|Error message response - does not specify if username or password failed|&#x2713;|
+|Login Page|Password validation|Enter incorrect password|Error message response - does not specify if username or password failed|&#x2713;|
+|Login Page|Remember me button|Checkbox on|Close browser window and reopen - user still logged in|&#x2713;|
+|Login Page|Sign in button|Click|Redirects to home page, shows successful login message|&#x2713;|
+|Logout Page|Site Logo|Click|Redirects to pizza order page from all pages|&#x2713;|
+|Logout Page|Order Pizza Link|Click|Loads the main page / order Pizza page|&#x2713;|
+|Logout Page|My Orders Link|Click|Redirects to My Orders Page|&#x2713;|
+|Logout Confirm Popup|Sign Out button|Click|Redirects to home page, user logged out|&#x2713;|
 
 ### Examples of completed tests
 ![Failed Login](planning_files/Test-LoggedOut-FailureUsername.jpg)
 ![Duplicate Username](planning_files/Test-LoggedOut-DuplicateUsername.jpg)
+![Edit Quantity Test - No Value Submitted.](planning_files/Notification-ValidQuantity.jpg)
+
 ### **Validation Testing**
 
 All code has been validated through:
 - **HTML**: [W3C Markup Validator](https://validator.w3.org/).
 - **CSS**: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
-- **Python**: PEP8 validation to ensure code quality.
+- **Python**: PEP8 validation to ensure code quality inside `VSCode` with `Flake8`
 - **Lighthouse**: Validated to below my standards on mobile performance. If I was using a paid plan of Cloudinary and/or Heroku these scores would be better than shown.
-- **Pep8**: Validated inside VSCode with Flake8
 
-### Desktop
+### Main Page
+#### Desktop
 ![Desktop Lighthouse Scores](planning_files/Lighthouse-DesktopScores.jpg)
 
-### Mobile
+#### Mobile
 ![Mobile Lighthouse Scores](planning_files/Lighthouse-MobileScores.jpg)
 
 ![Mobile Lighthouse issue 1](planning_files/Lighthouse-MobileScores-PerformanceIssue1.jpg)
@@ -694,6 +703,22 @@ All code has been validated through:
 ![Mobile Lighthouse issue 2 and 3](planning_files/Lighthouse-MobileScores-PerformanceIssue2and3.jpg)
 
 - These issues are because of Heroku and Cloudinary being on a free package and thus taking longer than desired for the scanners rankings. The score you get for mobile may be more favourable or less depending on location and time of day. I have attempted to adjust for this impact with Lazyload and other optimisation changes which are reflected in the Desktop score above.
+
+### Register Page
+#### Desktop
+#### Mobile
+
+### Login Page
+#### Desktop
+#### Mobile
+
+### My Orders Page
+#### Desktop
+#### Mobile
+
+### Logout Page
+#### Desktop
+#### Mobile
 
 ## Deployment
 
