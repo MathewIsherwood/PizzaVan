@@ -11,6 +11,19 @@ from .forms import ContactUsForm
 
 
 class PizzaList(generic.ListView):
+    """
+    Renders a list of Pizza's available for order.
+    **Context**
+    Displays an individual instance of :model:`pizza` for
+    each pizza that has been created in the last 24 hours.
+    The user must be authenticated to order a pizza,
+    edit or delete their own orders.
+    Items ordered (order_items) are stored in the user's
+    cart (cart_order) until they are checked out.
+    **Template:**
+    :template:`pizza/order.html`
+    """
+
     queryset = Pizza.objects.filter(enabled=True)
     template_name = "pizza/order.html"
     paginate_by = 6
@@ -31,23 +44,25 @@ class PizzaList(generic.ListView):
 
 
 def index(request):
-    """
-    **Template:**
-    :template:`pizza/index.html`
-    """
     return render(request, 'pizza/index.html')
 
 
 def order(request):
-    """
-    **Template:**
-    :template:`pizza/order.html`
-    """
     return render(request, 'pizza/order.html')
 
 
 @login_required
 def order_pizza(request, id):
+    """
+    Adds a pizza to the user's cart.
+    **Context**
+    The user must be authenticated to order a pizza,
+    edit or delete their own orders. If an order has already been
+    opened today, the pizza is added to the existing order.
+    If the pizza is already in the order and the order button is pressed, the quantity is incremented.
+    **Template:**
+    :template:`pizza/order.html`
+    """
     pizza = get_object_or_404(Pizza, id=id)
 
     # Check if an order has already been opened today
@@ -103,6 +118,15 @@ def order_pizza(request, id):
 
 @login_required
 def delete_pizza_order(request, id):
+    """
+    Deletes a pizza from the user's cart.
+    **Context**
+    The user must be authenticated to delete a pizza from their cart.
+    If the pizza is not in the cart, the user is informed that the pizza
+    cannot be deleted. If the pizza is in the cart, the pizza is deleted.
+    **Template:**
+    :template:`pizza/order.html`
+    """
     today = timezone.now().date()
     order = Order.objects.filter(
         user_id=request.user,
@@ -140,6 +164,14 @@ def delete_pizza_order(request, id):
 
 @login_required
 def my_orders(request):
+    """
+    Renders a list of the user's orders.
+    **Context**
+    Allows the user to view their order history.
+    The user must be authenticated to view their order history.
+    **Template:**
+    :template:`pizza/my_orders.html`
+    """
     orders = Order.objects.filter(
         user_id=request.user).order_by(
             '-forward_order_time')
@@ -148,6 +180,20 @@ def my_orders(request):
 
 @login_required
 def update_pizza_quantity(request, item_id):
+    """
+    Updates the quantity of a pizza in the user's cart.
+    **Context**
+    The user must be authenticated to update the quantity
+    of a pizza in their cart.
+    If the order is not from today, the user is informed
+    that the order cannot be updated.
+    If the quantity is not a valid number or is less than
+    or equal to 0, the user is informed that the
+    quantity must be a valid number greater than 0.
+    If the quantity is valid, the quantity is updated.
+    **Template:**
+    :template:`pizza/order.html`
+    """
     if request.method == 'POST':
         today = timezone.now().date()
         order_item = get_object_or_404(
@@ -183,6 +229,15 @@ def update_pizza_quantity(request, item_id):
 
 
 def contact_us(request):
+    """
+    Renders a contact form for the user to submit.
+    **Context**
+    Allows the user to submit a contact form.
+    If the form is submitted successfully, the user is
+    informed that their message has been received.
+    **Template:**
+    :template:`pizza/contact_us.html`
+    """
     if request.method == "POST":
         contactus_form = ContactUsForm(data=request.POST)
         if contactus_form.is_valid():

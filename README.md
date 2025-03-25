@@ -671,6 +671,9 @@ I plan to implement the following in future iterations:
 |Logout Page|My Orders Link|Click|Redirects to My Orders Page|
 |Logout Confirm Popup|Sign Out button|Click|Redirects to home page, user logged out|
 
+### Examples of completed tests
+![Failed Login](planning_files/Test-LoggedOut-FailureUsername.jpg)
+![Duplicate Username](planning_files/Test-LoggedOut-DuplicateUsername.jpg)
 ### **Validation Testing**
 
 All code has been validated through:
