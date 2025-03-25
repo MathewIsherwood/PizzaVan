@@ -693,7 +693,7 @@ All code has been validated through:
 
 ### Main Page
 #### Desktop
-![Desktop Lighthouse Scores](planning_files/Lighthouse-DesktopScores.jpg)
+![Main Page - Desktop Lighthouse Scores](planning_files/Lighthouse-DesktopScores.jpg)
 
 #### Mobile
 ![Mobile Lighthouse Scores](planning_files/Lighthouse-MobileScores.jpg)
@@ -706,19 +706,27 @@ All code has been validated through:
 
 ### Register Page
 #### Desktop
+![Register Page - Desktop Lighthouse Scores](planning_files/Lighthouse-DesktopScores-RegisterPage.jpg)
 #### Mobile
+![Register Page - Mobile Lighthouse Scores](planning_files/Lighthouse-MobileScores-RegisterPage.jpg)
 
 ### Login Page
 #### Desktop
+![Login Page - Desktop Lighthouse Scores](planning_files/Lighthouse-DesktopScores-LoginPage.jpg)
 #### Mobile
+![Login Page - Mobile Lighthouse Scores](planning_files/Lighthouse-MobileScores-LoginPage.jpg)
 
 ### My Orders Page
 #### Desktop
+![My Orders - Desktop Lighthouse Scores](planning_files/Lighthouse-DesktopScores-MyOrders.jpg)
 #### Mobile
+![My Orders - Mobile Lighthouse Scores](planning_files/Lighthouse-MobileScores-MyOrders.jpg)
 
 ### Logout Page
 #### Desktop
+![Logout Page - Desktop Lighthouse Scores](planning_files/Lighthouse-DesktopScores-LogoutPage.jpg)
 #### Mobile
+![Logout Page - Mobile Lighthouse Scores](planning_files/Lighthouse-MobileScores-LogoutPage.jpg)
 
 ## Deployment
 
