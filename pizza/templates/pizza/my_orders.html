@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title %}My Orders{% endblock title %}
+{% block description %}My Order Page, All My Orders Past and Present{% endblock %}
+{% block keywords %}My Orders{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
     <h1 class="text-center title">My Orders</h1>
@@ -22,7 +25,7 @@
                     <ul>
                         {% for item in order.orderitem_set.all %}
                             <li>
-                                <img src="{{ item.pizza_id.featured_image.url }}" alt="{{ item.pizza_id.name }}" class="img-thumbnail" style="width: 100px; height: auto;">
+                                <img src="{{ item.pizza_id.featured_image.url }}" alt="{{ item.pizza_id.name }}" class="img-thumbnail" style="width: 100px; height: auto;" {% if forloop.counter > 1 %}loading="lazy"{% endif %}>
                                 <strong>{{ item.pizza_id.name }}</strong> - Size: {{ item.pizza_id.size }}, Quantity: {{ item.quantity }}, Price: £{{ item.pizza_id.price }}
                             </li>
                         {% endfor %}
