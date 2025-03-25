@@ -3,7 +3,7 @@
 
 Live site: <a href="https://pizzame-c9ad4b305843.herokuapp.com/" target="_blank">PizzaMe!</a>.
 
-For **Admin access** with relevant sign-in information (User: Django. Pass: Unchained), <a href="https://pizzame-c9ad4b305843.herokuapp.com/admin/" target="_blank">PizzaMe! Admin</a>. 
+For **Admin access** with relevant sign-in information, <a href="https://pizzame-c9ad4b305843.herokuapp.com/admin/" target="_blank">PizzaMe! Admin</a>. 
 
 <a href="https://github.com/MathewIsherwood/PizzaVan" target="_blank">Github repository</a>.
 
